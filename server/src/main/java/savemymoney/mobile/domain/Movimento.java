@@ -45,6 +45,7 @@ public class Movimento {
     public void setData(Date data) {
         this.data=data;
     }
+
     public double getImporto() {
         return importo;
     }

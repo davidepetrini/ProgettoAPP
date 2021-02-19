@@ -2,6 +2,7 @@ package savemymoney.mobile.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
 import savemymoney.mobile.business.SaveMyMoneyService;
 import savemymoney.mobile.domain.Movimento;
 
@@ -45,21 +46,9 @@ public class RESTMovimentiController {
 		service.deleteMovimentoById(idMovimento);
 	}
 
-/*	@PostMapping
-	public void totalMovimento(@RequestBody Movimento movimento) {
-		service.totalMovimento(movimento);
-	}*/
 
 }
 
-
-/*
-@GetMapping
-	public List<Movimento> findAllEntrate(){
-		Utente utente = Utility.getUtente();
-		return service.findAllMovimentiByFamiglia(utente.getFamiglia());
-	}
- */
 
 
 

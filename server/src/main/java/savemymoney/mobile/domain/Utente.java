@@ -30,13 +30,6 @@ public class Utente {
 	@Column(name = "PASSWORD", nullable = false, length = 255)
 	private String password;
 
-	@ManyToOne
-	@JoinColumn(name = "CATEGORIA_IDCATEGORIA", nullable = false)
-	private Categoria categoria;
-
-
-
-	private Set<Categoria> categorieUtente = new HashSet<>();
 
 	public Long getId() {
 		return id;

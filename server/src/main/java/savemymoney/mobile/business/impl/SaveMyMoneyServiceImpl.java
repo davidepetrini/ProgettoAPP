@@ -32,7 +32,6 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 	private MovimentoRepository movimentoRepository;
 
 
-
 	@Override
 	public Utente findUtenteByUsername(String username) throws BusinessException {
 		return utenteRepository.findByUsername(username);
@@ -69,7 +68,8 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 		categoriaRepository.save(categoria);
 	}
 
-	@Override
+
+    @Override
 	public List<Movimento> findAllMovimenti() throws BusinessException {
 		return movimentoRepository.findAll();
 	}

@@ -54,30 +54,13 @@ public class UserDetailsImpl implements UserDetails {
 		List<GrantedAuthority> result = new ArrayList<>();
 
 		//if (utente instanceof Docente) {
-			GrantedAuthorityImpl authorityImpl = new GrantedAuthorityImpl("utente");
+			GrantedAuthorityImpl authorityImpl = new GrantedAuthorityImpl("membro");
 			result.add(authorityImpl);
 		//}
 
 		return result;
 	}
 
-	/*@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		List<GrantedAuthority> result = new ArrayList<>();
-
-		/*if (utente instanceof CapoFamiglia) {
-			GrantedAuthorityImpl authorityImpl = new GrantedAuthorityImpl("capoFamiglia");
-			result.add(authorityImpl);
-		} else {
-			if (utente instanceof Membro) {//
-
-
-		GrantedAuthorityImpl authorityImpl = new GrantedAuthorityImpl("membro");
-		result.add(authorityImpl);
-		//}
-		//}
-		return result;
-	}*/
 
 	@Override
 	public boolean isEnabled() {
