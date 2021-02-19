@@ -1,0 +1,7 @@
+{
+  "name": "@ProgettoApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
