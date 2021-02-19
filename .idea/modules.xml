@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ProgettoApp.iml" filepath="$PROJECT_DIR$/.idea/ProgettoApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client/plugins/cordova-plugin-statusbar/cordova-plugin-statusbar.iml" filepath="$PROJECT_DIR$/client/plugins/cordova-plugin-statusbar/cordova-plugin-statusbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client/plugins/cordova-sqlite-storage/cordova-sqlite-storage.iml" filepath="$PROJECT_DIR$/client/plugins/cordova-sqlite-storage/cordova-sqlite-storage.iml" />
     </modules>
   </component>
 </project>
