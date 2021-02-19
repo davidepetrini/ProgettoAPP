@@ -76,7 +76,7 @@ public class SaveMyMoneyApplication {
             stipe.setCategoria(stip);
             stipe.setData(new Date(System.currentTimeMillis() + (20 * 86400000)));
             stipe.setImporto(2000.50);
-            stipe = movimentoRepository.save(stipe);
+            stipe=movimentoRepository.save(stipe);
 
             Movimento food = new Movimento();
             food.setCategoria(cibo);

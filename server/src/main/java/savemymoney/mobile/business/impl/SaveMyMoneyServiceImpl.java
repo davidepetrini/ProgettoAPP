@@ -99,11 +99,5 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 	public void insertMovimento(Movimento movimento) throws BusinessException {
 		movimentoRepository.save(movimento);
 	}
-/*
-	@Override
-	public void createCategoria(Categoria categoria) throws BusinessException {
-		categoriaRepository.save(categoria);
-
-	}*/
 
 }
