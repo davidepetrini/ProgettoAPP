@@ -14,6 +14,11 @@ public interface SaveMyMoneyService {
 
 	Utente updateProfilo(Utente utente) throws BusinessException;
 
+	//void insertUtente(Utente utente) throws BusinessException;
+
+
+
+
 	List<Categoria> findAllCategorie() throws BusinessException;
 
 	Categoria findCategoriaById(Long id) throws BusinessException;
@@ -27,9 +32,11 @@ public interface SaveMyMoneyService {
 
 
 
+	List<Movimento> findMovimentiByCategoriaId(Long id) throws BusinessException;
 
+	List<Movimento> findAllMovimentiByUtente(Utente utente) throws BusinessException;
 
-	List<Movimento> findAllMovimenti() throws BusinessException;
+	//List<Movimento> findAllMovimenti() throws BusinessException;
 
 	Movimento findMovimentoById(Long id) throws BusinessException;
 
@@ -39,9 +46,13 @@ public interface SaveMyMoneyService {
 
 	void deleteMovimentoById(Long id) throws BusinessException;
 
+	void deleteMovimento(Long id) throws BusinessException;
+
+	void deleteMovimenti(Long cat) throws BusinessException;	//mov_cat
+
 	void insertMovimento(Movimento movimento) throws BusinessException;
 
-	//void createCategoria(Categoria categoria) throws BusinessException;
+
 
 
 //	void totalMovimento(Movimento movimento)throws BusinessException;

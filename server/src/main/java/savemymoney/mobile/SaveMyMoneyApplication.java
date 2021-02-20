@@ -74,24 +74,28 @@ public class SaveMyMoneyApplication {
 
             Movimento stipe = new Movimento();
             stipe.setCategoria(stip);
+            //stipe.setUtente(marco);
             stipe.setData(new Date(System.currentTimeMillis() + (20 * 86400000)));
             stipe.setImporto(2000.50);
             stipe=movimentoRepository.save(stipe);
 
             Movimento food = new Movimento();
             food.setCategoria(cibo);
+            //food.setUtente(davide);
             food.setData(new Date(System.currentTimeMillis() + (20 * 86400000)));
             food.setImporto(20.50);
             food = movimentoRepository.save(food);
 
             Movimento giacca = new Movimento();
             giacca.setCategoria(abiti);
+            //giacca.setUtente(davide);
             giacca.setData(new Date(System.currentTimeMillis()+(20*86400000)));
             giacca.setImporto(54.90);
             giacca = movimentoRepository.save(giacca);
 
             Movimento cravatta = new Movimento();
             cravatta.setCategoria(abiti);
+            //cravatta.setUtente(marco);
             cravatta.setData(new Date(System.currentTimeMillis()+(20*86400000)));
             cravatta.setImporto(50.40);
             cravatta = movimentoRepository.save(cravatta);

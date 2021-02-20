@@ -68,11 +68,24 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 		categoriaRepository.save(categoria);
 	}
 
+	@Override
+	public List<Movimento> findMovimentiByCategoriaId(Long id) throws BusinessException {
+		return movimentoRepository.findAllMovimentiByCategoriaId(id);
+	}
 
-    @Override
+	@Override
+	public List<Movimento> findAllMovimentiByUtente(Utente utente) throws BusinessException {
+		return movimentoRepository.findAllMovimentiByUtenteId(utente.getId(),JpaSort.unsafe(Direction.DESC,"data"));
+	}
+
+
+
+
+/*
+	@Override
 	public List<Movimento> findAllMovimenti() throws BusinessException {
 		return movimentoRepository.findAll();
-	}
+	}*/
 
 	@Override
 	public Movimento findMovimentoById(Long id) throws BusinessException {
@@ -91,7 +104,17 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 	}
 
 	@Override
-	public void deleteMovimentoById(Long id) throws BusinessException {
+	public void deleteMovimento(Long id) throws BusinessException {
+		movimentoRepository.deleteById(id);;
+	}
+
+	@Override
+	public void deleteMovimenti(Long cat) throws BusinessException {
+		movimentoRepository.deleteMovimentiByCategoria(cat);
+	}
+
+	@Override
+	public void deleteMovimentoById(Long id) throws BusinessException{
 		movimentoRepository.deleteById(id);
 	}
 
@@ -99,5 +122,6 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 	public void insertMovimento(Movimento movimento) throws BusinessException {
 		movimentoRepository.save(movimento);
 	}
+
 
 }
