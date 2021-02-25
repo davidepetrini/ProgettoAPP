@@ -23,7 +23,8 @@ public class RESTCatUteController {
 
     @Autowired
     private SaveMyMoneyService service;
-/*
+
+    /*
     @GetMapping
     public List<Categoria> list(){
         Utente utente = Utility.getUtente();

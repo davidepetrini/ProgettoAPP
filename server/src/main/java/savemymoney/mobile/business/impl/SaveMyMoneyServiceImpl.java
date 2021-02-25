@@ -46,15 +46,16 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 		Utente utente = utenteRepository.findByUsername(profilo.getUsername());
 		return utente;
 	}
-/*
+
+
+
+
+
+
+
 	@Override
 	public List<Categoria> findAllCategorie() throws BusinessException {
 		return categoriaRepository.findAll();
-	}
-
-	@Override
-	public Categoria findCategoriaById(Long id) throws BusinessException {
-		return categoriaRepository.findById(id).get();
 	}
 
 	@Override
@@ -73,19 +74,25 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 	}
 
 	@Override
+	public Categoria findCategoriaById(Long id) throws BusinessException {
+		return categoriaRepository.findById(id).get();
+	}
+
+
+
+
+
+
+
+
+	@Override
 	public List<Categoria> findCatUteByUtente(Utente utente) throws BusinessException {
 		return CategoriaUtenteRepository.findCategoriaByUtente(utente);
 	}
 
-	@Override
-	public List<Movimento> findMovimentiByCategoriaId(Long id) throws BusinessException {
-		return movimentoRepository.findAllMovimentiByCategoriaId(id);
-	}
 
-	@Override
-	public List<Movimento> findAllMovimentiByUtente(Utente utente)throws BusinessException{
-		return movimentoRepository.findAllMovimentiByUtenteId(utente.getId(),JpaSort.unsafe(Direction.DESC,"data"));
-	}
+
+
 
 
 
@@ -94,10 +101,26 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 		return movimentoRepository.findById(id).get();
 	}
 
-	@Override
+	/*@Override
 	public void createMovimento(Movimento movimento) throws BusinessException {
 		movimentoRepository.save(movimento);
+	}*/
 
+	@Override
+	public void deleteMovimento(Long id) throws BusinessException {
+		movimentoRepository.deleteById(id);;
+	}
+
+
+	@Override
+	public void deleteMovimentoById(Long id) throws BusinessException{
+		movimentoRepository.deleteById(id);
+	}
+
+
+	@Override
+	public void insertMovimento(Movimento movimento) throws BusinessException {
+		movimentoRepository.save(movimento);
 	}
 
 	@Override
@@ -106,24 +129,28 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 	}
 
 	@Override
-	public void deleteMovimento(Long id) throws BusinessException {
-		movimentoRepository.deleteById(id);;
+	public List<Movimento> findMovimentiByCategoriaId(Long id) throws BusinessException {
+		return movimentoRepository.findAllMovimentiByCategoriaId(id);
 	}
+
+
+
+
 
 	@Override
 	public void deleteMovimenti(Long cat) throws BusinessException {
 		movimentoRepository.deleteMovimentiByCategoria(cat);
 	}
 
-	@Override
-	public void deleteMovimentoById(Long id) throws BusinessException{
-		movimentoRepository.deleteById(id);
-	}
+	/*
+
+
 
 	@Override
-	public void insertMovimento(Movimento movimento) throws BusinessException {
-		movimentoRepository.save(movimento);
+	public List<Movimento> findAllMovimentiByUtente(Utente utente)throws BusinessException{
+		return movimentoRepository.findAllMovimentiByUtenteId(utente.getId(),JpaSort.unsafe(Direction.DESC,"data"));
 	}
 */
+
 
 }

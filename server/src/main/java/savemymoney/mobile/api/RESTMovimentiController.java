@@ -16,50 +16,69 @@ public class RESTMovimentiController {
 	
 	@Autowired
 	private SaveMyMoneyService service;
-	
-	/*@GetMapping
-	public List<Movimento> list() { return service.findAllMovimenti(); }
+
+
+
+	@GetMapping("/list/{idCategoria}")
+	public List<Movimento> findAllMovByCategoriaId(@PathVariable Long idCategoria){
+		return service.findMovimentiByCategoriaId(idCategoria);
+	}
+
+	@DeleteMapping("/delete/{idCategoria")
+	public void deleteMovimentiWhereCategoria(@PathVariable Long idCategoria) {
+		service.deleteMovimenti(idCategoria);
+	}
+
+
+
 
 	@GetMapping("/{idMovimento}")
 	public Movimento findMovimentoById(@PathVariable long idMovimento) {
 		return service.findMovimentoById(idMovimento);
 	}
 
-	@GetMapping("/list/{idCategoria}")
-	public List<Movimento> findAllMovByCategoriaId(@PathVariable Long idCategoria){
-		return service.findMovimentiByCategoriaId(idCategoria);
-	}
-	@DeleteMapping("/delete/{idCategoria")
-	public void deleteMovimentiWhereCategoria(@PathVariable Long idCategoria) {
-		service.deleteMovimenti(idCategoria);
-	}
-*/
-	/*@GetMapping
-	public List<Movimento> findAllEntrate(){
-		Utente utente = Utility.getUtente();
-		return service.findAllMovimentiByUtente(utente);
-	}*/
-
 	/*@PostMapping
 	public void createMovimento(@RequestBody Movimento movimento) {
 		service.createMovimento(movimento);
 	}*/
 
-/*	@PostMapping
+	@PostMapping
 	public void insertMovimento(@RequestBody Movimento movimento) {
 		service.insertMovimento(movimento);
 	}
-
 
 	@PutMapping
 	public void updateMovimento(@RequestBody Movimento movimento) {
 		service.updateMovimento(movimento);
 	}
 
+
+
 	@DeleteMapping("/{idMovimento}")
 	public void deleteMovimento( @PathVariable long idMovimento) {
 		service.deleteMovimentoById(idMovimento);
 	}
+
+
+
+	/*@GetMapping
+	public List<Movimento> list() { return service.findAllMovimenti(); }
+
+
+	@GetMapping
+	public List<Movimento> findAllEntrate(){
+		Utente utente = Utility.getUtente();
+		return service.findAllMovimentiByUtente(utente);
+	}*/
+
+
+
+/*
+
+
+
+
+
 */
 
 }

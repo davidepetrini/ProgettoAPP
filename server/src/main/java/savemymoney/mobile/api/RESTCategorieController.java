@@ -15,16 +15,19 @@ public class RESTCategorieController {
 	
 	@Autowired
 	private SaveMyMoneyService service;
-/*
+
 	@GetMapping
 	public List<Categoria> list() {
 		return service.findAllCategorie();
 	}
-	
+
 	@GetMapping("/{idCategoria}")
 	public Categoria findCategoriaById(@PathVariable Long idCategoria) {
 		return service.findCategoriaById(idCategoria);
 	}
+
+
+
 
 
 	@PostMapping
@@ -41,5 +44,5 @@ public class RESTCategorieController {
 	public void deleteCategoria( @PathVariable long idCategoria) {
 		service.deleteCategoriaById(idCategoria);
 	}
-*/
+
 }
