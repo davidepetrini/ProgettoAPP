@@ -20,9 +20,9 @@ public class Categoria {
     @Column(name = "BUDGET", length = 255)
     private float budget;
 
-    @ManyToOne
-    @JoinColumn(name = "UTENTE_IDUTENTE", nullable = false)
-    private Utente utente;
+   /* @ManyToOne
+    @JoinColumn(name = "ID_UTENTE", nullable = false)
+    private Utente utente;*/
 
     public Long getId() {
         return id;
@@ -54,14 +54,6 @@ public class Categoria {
 
     public void setBudget(float budget) {
         this.budget = budget;
-    }
-
-    public Utente getUtente() {
-        return utente;
-    }
-
-    public void setUtente(Utente utente) {
-        this.utente = utente;
     }
 
 }

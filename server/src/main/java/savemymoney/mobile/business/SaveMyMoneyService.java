@@ -18,6 +18,9 @@ public interface SaveMyMoneyService {
 
 
 
+/*
+
+
 
 	List<Categoria> findAllCategorie() throws BusinessException;
 
@@ -31,6 +34,7 @@ public interface SaveMyMoneyService {
 
 
 
+	List<Categoria> findCatUteByUtente(Utente utente) throws BusinessException;
 
 	List<Movimento> findMovimentiByCategoriaId(Long id) throws BusinessException;
 
@@ -56,7 +60,7 @@ public interface SaveMyMoneyService {
 
 
 //	void totalMovimento(Movimento movimento)throws BusinessException;
-
+*/
 
 }
 

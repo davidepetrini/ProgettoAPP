@@ -34,7 +34,7 @@ public class RESTUtenteController {
 	private JWTTokenUtil jwtTokenUtil;
 
 	@Autowired
-	private SaveMyMoneyService savemymoney;	//SaveMyMoneyService savemymoney
+	private SaveMyMoneyService SaveMyMoneyService;
 
 	@PostMapping("/login")
 	public UtenteResponse login(@RequestBody AuthenticationRequest authenticationRequest, HttpServletResponse response) throws AuthenticationException {
@@ -53,13 +53,8 @@ public class RESTUtenteController {
 
 	@PostMapping("/utente/updateprofilo")
 	public UtenteResponse updateProfilo(@RequestBody Utente utente) {
-		Utente nuovoUtente = savemymoney.updateProfilo(utente);		//myUnivaqService.updateProfilo(utente);
+		Utente nuovoUtente = SaveMyMoneyService.updateProfilo(utente);
 		return new UtenteResponse(nuovoUtente);
 	}
-	/*
-	@GetMapping
-	public Famiglia getFamigliaByUtente (Utente utente) {
-		return utente.getFamiglia();
-	}
-	 */
+
 }

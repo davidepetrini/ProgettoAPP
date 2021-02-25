@@ -1,12 +1,13 @@
 package savemymoney.mobile.domain;
 
-import javax.persistence.*;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@Table(name = "utenti")
+@Table(name = "utente")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TIPOLOGIA_UTENTE", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("utente")

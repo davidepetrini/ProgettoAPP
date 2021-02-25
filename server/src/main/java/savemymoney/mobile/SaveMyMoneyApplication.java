@@ -25,7 +25,7 @@ public class SaveMyMoneyApplication {
 
 
     @Bean
-    public CommandLineRunner loadData(UtenteRepository utenteRepository, CategoriaRepository categoriaRepository, MovimentoRepository movimentoRepository) {
+    public CommandLineRunner loadData(UtenteRepository utenteRepository, CategoriaRepository categoriaRepository, MovimentoRepository movimentoRepository, CategoriaUtenteRepository CategoriaUtenteRepository) {
         return (args) -> {
 
             Utente marco = new Utente();
@@ -71,6 +71,12 @@ public class SaveMyMoneyApplication {
             abiti.setNome("Vestiti");
             abiti.setSegno(TipoMovimento.USCITA);
             abiti=categoriaRepository.save(abiti);
+
+            Categoria_has_Utente PetAbiti=new Categoria_has_Utente();
+            PetAbiti.setCategoria(abiti);
+            PetAbiti.setUtente(davide);
+            PetAbiti.setBudget(5200);
+            PetAbiti= CategoriaUtenteRepository.save(PetAbiti);
 
             Movimento stipe = new Movimento();
             stipe.setCategoria(stip);

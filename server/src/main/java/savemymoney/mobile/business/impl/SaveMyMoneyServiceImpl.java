@@ -13,9 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 import savemymoney.mobile.business.BusinessException;
 import savemymoney.mobile.business.SaveMyMoneyService;
 import savemymoney.mobile.business.impl.repositories.CategoriaRepository;
+import savemymoney.mobile.business.impl.repositories.CategoriaUtenteRepository;
 import savemymoney.mobile.business.impl.repositories.MovimentoRepository;
 import savemymoney.mobile.business.impl.repositories.UtenteRepository;
 import savemymoney.mobile.domain.Categoria;
+import savemymoney.mobile.domain.Categoria_has_Utente;
 import savemymoney.mobile.domain.Movimento;
 
 import savemymoney.mobile.domain.Utente;
@@ -30,6 +32,8 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 	private UtenteRepository utenteRepository;
 	@Autowired
 	private MovimentoRepository movimentoRepository;
+	@Autowired CategoriaUtenteRepository CategoriaUtenteRepository;
+
 
 
 	@Override
@@ -42,7 +46,7 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 		Utente utente = utenteRepository.findByUsername(profilo.getUsername());
 		return utente;
 	}
-
+/*
 	@Override
 	public List<Categoria> findAllCategorie() throws BusinessException {
 		return categoriaRepository.findAll();
@@ -69,23 +73,21 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 	}
 
 	@Override
+	public List<Categoria> findCatUteByUtente(Utente utente) throws BusinessException {
+		return CategoriaUtenteRepository.findCategoriaByUtente(utente);
+	}
+
+	@Override
 	public List<Movimento> findMovimentiByCategoriaId(Long id) throws BusinessException {
 		return movimentoRepository.findAllMovimentiByCategoriaId(id);
 	}
 
 	@Override
-	public List<Movimento> findAllMovimentiByUtente(Utente utente) throws BusinessException {
+	public List<Movimento> findAllMovimentiByUtente(Utente utente)throws BusinessException{
 		return movimentoRepository.findAllMovimentiByUtenteId(utente.getId(),JpaSort.unsafe(Direction.DESC,"data"));
 	}
 
 
-
-
-/*
-	@Override
-	public List<Movimento> findAllMovimenti() throws BusinessException {
-		return movimentoRepository.findAll();
-	}*/
 
 	@Override
 	public Movimento findMovimentoById(Long id) throws BusinessException {
@@ -122,6 +124,6 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 	public void insertMovimento(Movimento movimento) throws BusinessException {
 		movimentoRepository.save(movimento);
 	}
-
+*/
 
 }

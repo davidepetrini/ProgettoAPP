@@ -18,7 +18,7 @@ public class RESTMovimentiController {
 	private SaveMyMoneyService service;
 	
 	/*@GetMapping
-	public List<Movimento> list() { return service.findAllMovimenti(); }*/
+	public List<Movimento> list() { return service.findAllMovimenti(); }
 
 	@GetMapping("/{idMovimento}")
 	public Movimento findMovimentoById(@PathVariable long idMovimento) {
@@ -33,33 +33,34 @@ public class RESTMovimentiController {
 	public void deleteMovimentiWhereCategoria(@PathVariable Long idCategoria) {
 		service.deleteMovimenti(idCategoria);
 	}
-
-	@GetMapping
+*/
+	/*@GetMapping
 	public List<Movimento> findAllEntrate(){
 		Utente utente = Utility.getUtente();
 		return service.findAllMovimentiByUtente(utente);
-	}
+	}*/
 
 	/*@PostMapping
 	public void createMovimento(@RequestBody Movimento movimento) {
 		service.createMovimento(movimento);
 	}*/
 
-	@PostMapping
+/*	@PostMapping
 	public void insertMovimento(@RequestBody Movimento movimento) {
 		service.insertMovimento(movimento);
 	}
 
-	/*@PutMapping
+
+	@PutMapping
 	public void updateMovimento(@RequestBody Movimento movimento) {
 		service.updateMovimento(movimento);
-	}*/
+	}
 
 	@DeleteMapping("/{idMovimento}")
 	public void deleteMovimento( @PathVariable long idMovimento) {
 		service.deleteMovimentoById(idMovimento);
 	}
-
+*/
 
 }
 
