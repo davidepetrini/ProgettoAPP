@@ -25,9 +25,9 @@ public class Movimento {
     @JoinColumn(name = "CATEGORIA_IDCATEGORIA", nullable = false)
     private Categoria categoria;
 
-    /*@ManyToOne
+    @ManyToOne
     @JoinColumn(name = "UTENTE_IDUTENTE", nullable = false)
-    private Utente utente;*/
+    private Utente utente;
 
 
     public Long getId() {
@@ -63,12 +63,12 @@ public class Movimento {
         this.categoria=categoria;
     }
 
-   /* public Utente getUtente() {
+    public Utente getUtente() {
         return utente;
     }   //this.utente
 
     public void setUtente(Utente utente) {
         this.utente = utente;
-    }*/
+    }
 
 }

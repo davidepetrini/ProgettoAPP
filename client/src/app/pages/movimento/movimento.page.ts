@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController, NavController, NavParams } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Categoria } from 'src/app/model/categoria.model';
 import { Movimento } from 'src/app/model/movimento.model';
-import { CategoriaService } from 'src/app/services/categoria.service';
+import { Utente } from 'src/app/model/utente.model';
 import { MovimentoService } from 'src/app/services/movimento.service';
 import { UtenteService } from 'src/app/services/utente.service';
 
@@ -15,62 +14,28 @@ import { UtenteService } from 'src/app/services/utente.service';
   styleUrls: ['./movimento.page.scss'],
 })
 export class MovimentoPage implements OnInit {
+  private movimento$: Observable<Movimento>;
 
-  movimento = new Movimento();
+  private movimento: Movimento;
+  private movimentoFormModel: FormGroup;
   categorie: Array<Categoria>;
   inserimento: boolean = false;
 
 
-  constructor(
-    private navCtrl: NavController,
-    //private navParams: NavParams,
-    private categoriaService :CategoriaService,
-    private movimentoService: MovimentoService,
+  constructor(private navParams: NavParams,
+    private modalController: ModalController,
+    private formBuilder: FormBuilder,
+    public navCtrl: NavController,
+    public movimentoService: MovimentoService
   ) { }
 
-  ngOnInit(){
-    //this.movimento =this.navParams.get("movimento");
 
-    //flag for insert or create
-    //this.inserimento = this.navParams.get("inserimento");
-   
-    //get category array to display
-    this.categoriaService.list().subscribe((data:Array<Categoria>) =>{
-      this.categorie = data;})
-  
-
-  }
-
-  onSubmit(form: NgForm){
-    if(form.valid){
-      console.log(this.movimento.categoria.segno);
-      //Setto importo negativo per le uscite
-      if(this.movimento.categoria.segno == "USCITA"){
-        this.movimento.importo *= -1;
-      }
-      console.log(this.movimento.importo);
-      /*if(this.inserimento){
-        this.movimentoService.createMovimento(this.movimento).subscribe(() =>{
-          this.navCtrl.pop()
-        });
-      } else{
-        this.movimentoService.updateMovimento(this.movimento).subscribe(() =>{
-          this.navCtrl.pop();
-        });
-      }*/
-    }
-  }
-
-  onDelete(){
-    this.movimentoService.deleteMovimento(this.movimento).subscribe(()=>{
-      this.navCtrl.pop();
-    })
-  }
-
-
-/*  ngOnInit() {
+  ngOnInit() {
     this.movimento = this.navParams.data.appParam;
     this.movimentoFormModel = this.formBuilder.group({
+      nome: [this.movimento.nome, Validators.compose([
+        Validators.required
+      ])],
       categoria: [this.movimento.categoria, Validators.compose([
         Validators.required
       ])],
@@ -78,99 +43,29 @@ export class MovimentoPage implements OnInit {
         Validators.required
       ])]
     });
-  }*/
+  }
 
 
-
-  /*
-  ngOnInit() {
-    console.log('ngOnInit MovimentoPage');
-    this.movimento = this.navParams.get("movimento");
-    //flag for insert or create
-    //this.inserimento = this.navParams.get("inserimento");
-    //get category array to display
-    this.categoriaService.list().subscribe((data:Array<Categoria>) =>{
-      this.categorie = data;})
-    
-    }*/
-
-
-
-/*
   async onSubmit() {
+    this.movimento.nome = this.movimentoFormModel.value.nome;
     this.movimento.categoria = this.movimentoFormModel.value.categoria;
     this.movimento.importo = this.movimentoFormModel.value.importo;
     await this.modalController.dismiss(this.movimento);
   }
-  async onDelete() {
+
+  onDelete(){
+    this.movimentoService.deleteMovimento(this.movimento).subscribe(()=>{
+      this.navCtrl.pop();
+    })
+  }
+
+  async cancel() {
     await this.modalController.dismiss();
   }
-*/
-
-
-
-
-  /*   
-  
-  private formBuilder: FormBuilder,
-    private modalController: ModalController,
-    private navParams: NavParams
-    
-    ngOnInit() {
-       this.movimento = this.navParams.data.appParam;
-       this.movimentoFormModel = this.formBuilder.group({
-         descrizione: [this.movimento.descrizione, Validators.compose([
-           Validators.required
-         ])],
-         tipologiaEsame: [this.movimento.tipologiaEsame, Validators.compose([
-           Validators.required
-         ])],
-         dataAppello: [this.movimento.dataAppello, Validators.compose([
-           Validators.required
-         ])]
-       });
-     }
- */
-
-
 }
 
-
-
 /*
-export class MovimentoPage {
-
-  movimento = new Movimento();
-  categorie: Array<Categoria>;
-  inserimento: boolean = false;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public movimentoService: MovimentoService,
-              public categoriaService :CategoriaService,public utenteService: UtenteService) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MovimentoPage');
-    this.movimento =this.navParams.get("movimento");
-    //flag for insert or create
-    this.inserimento = this.navParams.get("inserimento");
-    //get category array to display
-    this.categoriaService.list().subscribe((data:Array<Categoria>) =>{
-      this.categorie=data;})
-    //get current family
-    this.utenteService.getUtente().subscribe((data:Utente) =>{
-      this.movimento.famiglia=data.famiglia;
-      })
-    }
-
-  onSubmit(form: NgForm){
-    if(form.valid){
-      console.log(this.movimento.categoria.segno);
-      //Setto importo negativo per le uscite
-      if(this.movimento.categoria.segno == "USCITA"){
-        this.movimento.importo *= -1;
-      }
-      console.log(this.movimento.importo);
-      if(this.inserimento){
+if(this.inserimento){
         this.movimentoService.createMovimento(this.movimento).subscribe(() =>{
           this.navCtrl.pop()
         });
@@ -179,14 +74,4 @@ export class MovimentoPage {
           this.navCtrl.pop();
         });
       }
-    }
-  }
-  onDelete(){
-    this.movimentoService.deleteMovimento(this.movimento).subscribe(()=>{
-      this.navCtrl.pop();
-    })
-  }
-}
-
-
 */

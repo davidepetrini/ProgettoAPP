@@ -55,12 +55,12 @@ public interface SaveMyMoneyService {
 
 	Movimento findMovimentoById(Long id) throws BusinessException;
 
-	//List<Movimento> findAllMovimentiByUtente(Utente utente) throws BusinessException;
+	List<Movimento> findAllMovimentiByUtente(Utente utente) throws BusinessException;
 
 	void deleteMovimenti(Long cat) throws BusinessException;	//mov_cat
 
 
-	//List<Movimento> findAllMovimenti() throws BusinessException;
+	List<Movimento> findAllMovimenti() throws BusinessException;
 
 
 }

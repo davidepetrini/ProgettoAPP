@@ -61,10 +61,10 @@ public class RESTMovimentiController {
 
 
 
-	/*@GetMapping
+	@GetMapping
 	public List<Movimento> list() { return service.findAllMovimenti(); }
 
-
+/*
 	@GetMapping
 	public List<Movimento> findAllEntrate(){
 		Utente utente = Utility.getUtente();

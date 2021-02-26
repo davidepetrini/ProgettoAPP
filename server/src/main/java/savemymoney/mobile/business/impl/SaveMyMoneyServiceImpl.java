@@ -133,7 +133,10 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 		return movimentoRepository.findAllMovimentiByCategoriaId(id);
 	}
 
-
+	@Override
+	public List<Movimento> findAllMovimenti() throws BusinessException {
+		return movimentoRepository.findAll();
+	}
 
 
 
@@ -142,7 +145,7 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 		movimentoRepository.deleteMovimentiByCategoria(cat);
 	}
 
-	/*
+
 
 
 
@@ -150,7 +153,6 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 	public List<Movimento> findAllMovimentiByUtente(Utente utente)throws BusinessException{
 		return movimentoRepository.findAllMovimentiByUtenteId(utente.getId(),JpaSort.unsafe(Direction.DESC,"data"));
 	}
-*/
 
 
 }
