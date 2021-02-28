@@ -1,21 +1,50 @@
 <ion-header>
   <ion-toolbar color="primary" text-center>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>{{'DETTAGLIO_NOTIZIA_TITOLO' | translate}}</ion-title>
+    <ion-title>
+      <h3 [hidden]="!inserimento">{{'ADD_CAT'| translate}}</h3>
+      <h3 [hidden]="inserimento">{{'UPDATE_CAT'| translate}}</h3>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content padding>
-  <ion-card *ngIf="(categoria$ | async) as categoria">
-    <ion-card-header>
-      <ion-card-title>{{categoria.nome}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <div>{{notizia.descrizione}}</div>
-      <div>Pubblicato da: <b>{{notizia.pubblicatoDa.nome}}</b></div>
-      <div>Tipologia: <b>{{notizia.tipologia.nome}}</b></div>
 
-    </ion-card-content>
-  </ion-card>
+
+<ion-content padding>
+  <form [formGroup]="categoriaFormModel">
+
+    <!-------Nome Categoria -------->
+    <ion-item class="animated fadeInUp">
+      <ion-label position="floating">{{ 'CATEGORIA' | translate }}</ion-label>
+      <ion-input type="text" formControlName="nome"></ion-input>
+    </ion-item>
+    <p ion-text class="text08" *ngIf="categoriaFormModel.get('nome').touched && categoriaFormModel.get('nome').invalid">
+      <ion-text color="danger">{{ 'CATEGORY_REQUIRED' | translate }}</ion-text>
+    </p>
+
+    <!------Segno Categoria ------>
+    <ion-item>
+      <ion-label position="fixed">{{ 'SEGNO' | translate }}</ion-label>
+      <ion-select formControlName="segno" okText="{{ 'SAVE_BUTTON' | translate }}" cancelText="{{ 'CANCEL_BUTTON' | translate }}">
+        <ion-select-option *ngFor="let t of segno" [value]="t">{{t}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-------budget Categoria -------->
+    <ion-item class="animated fadeInUp">
+      <ion-label position="floating">{{ 'BUDGET' | translate }}</ion-label>
+      <ion-input type="number" formControlName="budget"></ion-input>
+    </ion-item>
+    <p ion-text class="text08" *ngIf="categoriaFormModel.get('budget').touched && categoriaFormModel.get('budget').invalid">
+      <ion-text color="danger">{{ 'BUDGET_REQUIRED' | translate }}</ion-text>
+    </p>
+
+    <div margin-top="30px" align="center">
+      <ion-button icon-left size="medium" shape="round" color="primary" (click)="onSubmit()"
+        [disabled]="!categoriaFormModel.valid" tappable>
+        {{ 'SAVE_BUTTON' | translate }}
+      </ion-button>
+      <ion-button icon-left size="medium" shape="round" color="primary" (click)="cancel()" tappable>
+        {{ 'CANCEL_BUTTON' | translate }}
+      </ion-button>
+    </div>
+  </form>
 </ion-content>

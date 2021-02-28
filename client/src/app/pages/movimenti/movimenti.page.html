@@ -37,33 +37,36 @@
   <ion-list>
 
     <!-- ENTRATE -->
-    <ion-list-header>{{'POSITIVO' | translate}}</ion-list-header>
+    <ion-list-header color="secondary" class="green">{{'POSITIVO' | translate}}</ion-list-header>
 
-    <ion-list *ngFor="let m of movimenti$ | async" [routerLink]="['/movimenti', m.id]" routerDirection="forward"
-      detail="true">
+    <ion-list *ngFor="let m of movimenti$ | async">
       <ion-item *ngIf="m.categoria.segno == 'ENTRATA'">
-        <ion-col class="small">{{m.data | date:'dd/MM'}}</ion-col>
+        <ion-col class="small" align="left">{{m.data | date:'dd/MM'}}</ion-col>
         <ion-col class="centrato">
-          <ion-item-option color="secondary" (click)="updateMovimento(m)">{{m.categoria.nome}}</ion-item-option>
+          <ion-col class="small">{{m.categoria.nome}}</ion-col>
+          <ion-item-option color="secondary" (click)="updateMovimento(m)">{{m.nome}}</ion-item-option>
         </ion-col>
-        <ion-col class="alignRight green">+ {{m.importo}} {{'CURRENCY_VALUE'| translate}}</ion-col>
+        <ion-col class="alignRight green" align="right">+ {{m.importo}} {{'CURRENCY_VALUE'| translate}}</ion-col>
       </ion-item>
     </ion-list>
 
     <!-- USCITE -->
-    <ion-list-header>{{'NEGATIVO' | translate}}</ion-list-header>
+    <ion-list-header color="secondary" class="red">{{'NEGATIVO' | translate}}</ion-list-header>
 
-    <ion-list *ngFor="let n of movimenti$ | async" [routerLink]="['/movimenti', n.id]" routerDirection="forward"
-      detail="true">
+    <ion-list *ngFor="let n of movimenti$ | async">
       <ion-item *ngIf="n.categoria.segno == 'USCITA'">
         <ion-col class="small">{{n.data | date:'dd/MM'}}</ion-col>
         <ion-col class="centrato">
-          <ion-item-option color="secondary" (click)="updateMovimento(n)">{{n.categoria.nome}}</ion-item-option>
+          <ion-col class="small">{{n.categoria.nome}}</ion-col>
+          <ion-item-option color="secondary" (click)="updateMovimento(n)">{{n.nome}}</ion-item-option>
         </ion-col>
-        <ion-col class="alignRight red">- {{n.importo}} {{'CURRENCY_VALUE'| translate}}</ion-col>
+        <ion-col class="alignRight red" align="right">- {{n.importo}} {{'CURRENCY_VALUE'| translate}}</ion-col>
       </ion-item>
     </ion-list>
 
 
   </ion-list>
 </ion-content>
+<ion-button (click)="createMovimento()" class="btt" size="medium" shape="round" color="warning" tappable>
+  <ion-icon name="add"></ion-icon>
+</ion-button>

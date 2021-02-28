@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Categoria } from 'src/app/model/categoria.model';
 import { Movimento } from 'src/app/model/movimento.model';
 import { Utente } from 'src/app/model/utente.model';
+import { CategoriaService } from 'src/app/services/categoria.service';
 import { MovimentoService } from 'src/app/services/movimento.service';
 import { UtenteService } from 'src/app/services/utente.service';
 
@@ -15,10 +16,13 @@ import { UtenteService } from 'src/app/services/utente.service';
 })
 export class MovimentoPage implements OnInit {
   private movimento$: Observable<Movimento>;
+  private categorie$: Observable<Categoria[]>;
+  private idCategoria: number;
+
 
   private movimento: Movimento;
   private movimentoFormModel: FormGroup;
-  categorie: Array<Categoria>;
+  private categorie: Array<Categoria>;
   inserimento: boolean = false;
 
 
@@ -26,6 +30,7 @@ export class MovimentoPage implements OnInit {
     private modalController: ModalController,
     private formBuilder: FormBuilder,
     public navCtrl: NavController,
+    private categoriaService: CategoriaService,
     public movimentoService: MovimentoService
   ) { }
 
@@ -42,6 +47,10 @@ export class MovimentoPage implements OnInit {
       importo: [this.movimento.importo, Validators.compose([
         Validators.required
       ])]
+    });
+
+    this.categoriaService.list().subscribe((data:Array<Categoria>) => {
+      this.categorie=data;
     });
   }
 
@@ -62,6 +71,16 @@ export class MovimentoPage implements OnInit {
   async cancel() {
     await this.modalController.dismiss();
   }
+
+
+  
+
+  /* listCategorie(){
+    console.log("Lista Categorie");
+    this.categoriaService.list().subscribe((app: Array<Categoria>) =>{
+      this.categorie = app;
+    })
+  }*/
 }
 
 /*

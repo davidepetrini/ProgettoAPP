@@ -45,9 +45,11 @@ public interface SaveMyMoneyService {
 
 	void deleteMovimento(Long id) throws BusinessException;
 
+	void createMovimento(Movimento movimento) throws BusinessException;
+
 	void deleteMovimentoById(Long id) throws BusinessException;
 
-	void insertMovimento(Movimento movimento) throws BusinessException;
+	//void insertMovimento(Movimento movimento) throws BusinessException;
 
 	void updateMovimento(Movimento movimento) throws BusinessException;
 

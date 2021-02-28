@@ -1,55 +1,89 @@
 <ion-header>
-
-  <ion-navbar hide-tabs>
+  <ion-toolbar color="primary" text-center>
     <ion-title>
-      <h1 [hidden]="inserimento">{{'ADD_FLOW'| translate}}</h1>
-      <h1 [hidden]="!inserimento">{{'UPDATE_FLOW'| translate}}</h1>
+      <h3 [hidden]="inserimento">{{'CATEGORIA'| translate}}</h3>
+      <h3 [hidden]="!inserimento">{{'ADD_FLOW'| translate}}</h3>
     </ion-title>
-  </ion-navbar>
-
+  </ion-toolbar>
 </ion-header>
 
 
+
 <ion-content padding>
-  <form #MovimentoForm="ngForm">
-    <ion-list no-lines>
+  <form [formGroup]="movimentoFormModel">
+    <!--<ion-list no-lines>-->
+
+    <!---
+    <ion-item class="animated fadeInUp">
+      <ion-label position="floating">{{ 'CATEGORIA' | translate }}</ion-label>
+      <ion-input type="text" formControlName="nome"></ion-input>
+    </ion-item>
+    <p ion-text class="text08" *ngIf="movimentoFormModel.get('nome').touched && movimentoFormModel.get('nome').invalid">
+      <ion-text color="danger">{{ 'CATEGORY_REQUIRED' | translate }}</ion-text>
+    </p>
+  -->
 
 
-      <!-- categoria -->
-      <ion-item>
-        <ion-label>{{'CATEGORIA'| translate}}</ion-label>
-        <ion-select name="nome" [(ngModel)]="movimento.categoria" #nome="ngModel" required
-          okText="{{ 'SAVE_BUTTON' | translate }}" cancelText="{{ 'CANCEL_BUTTON' | translate }}">
-          <ion-select-option *ngFor="let categoria of categorie" [value]="categoria">{{categoria.nome}}
-          </ion-select-option>
-        </ion-select>
-      </ion-item>
-      <!--<p ion-text [hidden]="nome.valid" color="danger" padding-left>
-        {{ 'CATEGORY_REQUIRED' | translate }}
-    </p>-->
+  <!-------Nome Movimento -------->
+  <ion-item class="animated fadeInUp">
+    <ion-label position="floating">{{ 'NOME' | translate }}</ion-label>
+    <ion-input type="text" formControlName="nome"></ion-input>
+  </ion-item>
+  <p ion-text class="text08" *ngIf="movimentoFormModel.get('nome').touched && movimentoFormModel.get('nome').invalid">
+    <ion-text color="danger">{{ 'CATEGORY_REQUIRED' | translate }}</ion-text>
+  </p>
+  <h3 [hidden]="!inserimento">{{'ADD_FLOW'| translate}}</h3>
 
-      <!-- importo -->
-      <ion-item>
-        <ion-label>{{'IMPORTO'|translate}}</ion-label>
-        <ion-input type="number" #importo="ngModel" name="importo" [(ngModel)]="movimento.importo" required> €  </ion-input>
-      </ion-item>
-      <!--<p ion-text [hidden]="importo.valid" color="danger" padding-left>
-        {{ 'IMPORTO_REQUIRED' | translate }}
-      </p>-->
 
-    </ion-list>
+    <!------- CATEGORIA -------->
+    <ion-item>
+      <ion-label position="fixed">{{ 'CATEGORIA' | translate }}</ion-label>
+      <ion-select formControlName="categoria" okText="{{ 'SAVE_BUTTON' | translate }}" cancelText="{{ 'CANCEL_BUTTON' | translate }}">
+        <ion-select-option *ngFor="let categoria of categorie" [value]="categoria">{{categoria.nome}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <!------ IMPORTO ------>
+    <ion-item class="animated fadeInUp">
+      <ion-label position="floating">{{ 'IMPORTO' | translate }}</ion-label>
+      <ion-input type="number" formControlName="importo"></ion-input>
+    </ion-item>
+    <p ion-text class="text08" *ngIf="movimentoFormModel.get('importo').touched && movimentoFormModel.get('importo').invalid">
+      <ion-text color="danger">{{ 'IMPORTO_REQUIRED' | translate }}</ion-text>
+    </p>
+
+  <!--</ion-list>-->
+
+
 
     <!-- Submit -->
+
+    <div margin-top="30px" align="center">
+      <ion-button icon-left size="medium" shape="round" color="primary" (click)="onSubmit()" [disabled]="!movimentoFormModel.valid" tappable>
+        {{ 'SAVE_BUTTON' | translate }}
+      </ion-button>
+      <ion-button icon-left size="medium" shape="round" color="primary" (click)="onDelete()" tappable>
+        {{ 'CANCEL_BUTTON' | translate }}
+      </ion-button>
+    </div>
+  </form>
+</ion-content>
+
+
+
+<!-----------------------------------
     
+
     <ion-row responsive-sm>
       <ion-col>
-        <button ion-button (click)="onSubmit(MovimentoForm)" type="submit" [disabled]="!MovimentoForm.form.valid" block>{{ 'SAVE_BUTTON' | translate }}</button>
+        <button ion-button (click)="onSubmit(MovimentoForm)" type="submit" [disabled]="!MovimentoForm.form.valid"
+          block>{{ 'SAVE_BUTTON' | translate }}</button>
       </ion-col>
       <ion-col>
         <button [hidden]="!inserimento" ion-button navPop block>{{'CANCEL_BUTTON'|translate}}</button>
         <button [hidden]="inserimento" (click)="onDelete()" ion-button block>{{'DELETE_BUTTON'| translate}}</button>
       </ion-col>
     </ion-row>
-
-  </form>
-</ion-content>
+-------------------------->

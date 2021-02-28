@@ -1,55 +1,41 @@
 <ion-toolbar color="primary">
-    <ion-title>{{'CATEGORIE_TAB'| translate}}</ion-title>
+  <ion-title>{{'CATEGORIE_TAB'| translate}}</ion-title>
 </ion-toolbar>
-  
-
-
-
 
 
 <ion-content padding>
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
-</ion-refresher>
+  </ion-refresher>
 
-<ion-list>
-  <ion-list-header>{{'POSITIVO' | translate}}</ion-list-header>
-  <ion-list *ngFor="let categoria of categorie$ | async" [routerLink]="['/categorie', categoria.id]" routerDirection="forward" detail="true">
-    <!--ion-item *ngIf="categoria.segno == 'ENTRATA'"><clear-->
-      <button ion-button block>{{categoria.nome}}</button>
-    <!--</ion-item>-->
-  </ion-list>
-  
-
-
-    
-            
-
-    
-    
-<!--
-
+  <ion-list>
+    <ion-list-header>{{'POSITIVO' | translate}}</ion-list-header>
+    <ion-item-sliding *ngFor="let categoria of categorie$ | async" #sliding>
+      <ion-item *ngIf="categoria.segno == 'ENTRATA'">
+        <ion-item-option color="secondary" (click)="updateCategoria(categoria, sliding)">{{categoria.nome}}
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-item-option>
+        <!--<button ion-button (click)="delete(f)" outline block>
+          <ion-icon name="close"></ion-icon>
+        </button>-->
+      </ion-item>
+    </ion-item-sliding>
 
     <ion-list-header>{{'NEGATIVO' | translate}}</ion-list-header>
-    <ion-list>
-      <ion-item *ngFor="let categoria of categorie$ | async" [routerLink]="['/categorie', categoria.id]" routerDirection="forward" detail="true">
-          <ion-label>{{categoria.nome | date:'dd/MM/yyyy'}}</ion-label>
-          <span>{{categoria.nome | slice:0:20}}</span>
-      </ion-item>-->
+    <ion-item-sliding *ngFor="let categoria of categorie$ | async" #sliding>
+      <ion-item *ngIf="categoria.segno == 'USCITA'">
+        <ion-item-option color="secondary" (click)="updateCategoria(categoria, sliding)">{{categoria.nome}}
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-item-option>
+      </ion-item>
+    </ion-item-sliding>
+
   </ion-list>
 
-  <!--
-    <ion-list *ngFor="let f of categorie" >
-      <ion-item *ngIf="f.segno == 'USCITA'" clear>
-        <button ion-button block>{{f.nome}}</button>
-      </ion-item>
-    </ion-list>-->
-
-
   <div>
-  <ion-button (click)="createCategoria()" class="center" icon-left size="medium" shape="round" color="primary" tappable>
-        {{ 'ADD_CATEGORIA' | translate }}
-      </ion-button>
-    </div>
-  
+    <ion-button (click)="createCategoria()" class="center" icon-left size="medium" shape="round" color="primary"
+      tappable>
+      {{ 'ADD_CATEGORIA' | translate }}
+    </ion-button>
+  </div>
 </ion-content>

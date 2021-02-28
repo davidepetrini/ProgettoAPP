@@ -13,11 +13,13 @@ export class MovimentoService{
     constructor(private http: HttpClient) {
     }
     
-// movimenti --> dashboard
-    list(): Observable<Array<Movimento>> {        
-        let movimentiUrl = `${URL.MOVIMENTI}`;
-        return this.http.get<Array<Movimento>>(movimentiUrl);   //(dashboardUrl)
+
+
+    list(): Observable<Movimento[]> {
+        return this.http.get<Movimento[]>(URL.MOVIMENTI);
     }
+
+
 
     findById(movimentoId: number): Observable<Movimento> {
         let apiURL = `${URL.MOVIMENTI}/${movimentoId}`;

@@ -12,7 +12,7 @@ export const URL = {
     CATEGORIE: URL_BASE + '/categorie',
     MOVIMENTI: URL_BASE + '/movimenti', //lista movimenti
     //MOVIMENTI: URL_BASE + '/categorie',
-
+    CATUTE: URL_BASE + "/uteCat"
 
 };
 

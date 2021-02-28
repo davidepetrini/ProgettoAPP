@@ -15,8 +15,6 @@
 
   "PAGINA_COSTRUZIONE": "Pagina in costruzione!!!!!",
 
-  "NOME": "Nome",
-  "COGNOME": "Cognome",
   "USERNAME": "Username",
   "PASSWORD": "Password",
   "TELEFONO": "Telefono",
@@ -34,32 +32,6 @@
 
   "PROFILO_MENU": "Profilo",
   "LOGOUT_MENU": "Esci",
-  "NOTIZIE_TAB": "Notizie",
-  "ORARIO_TAB": "Orario",
-  "APPELLI_TAB": "Appelli",
-  "ESAMI_TAB": "Esami",
-  "LEZIONI_TAB": "Lezioni",
-
-  "PROFILO_TITOLO": "Profilo",
-  "MATRICOLA": "Matricola",
-  "EMAIL": "Email",
-  "LANGUAGE": "Lingua",
-  "EMAIL_REQUIRED": "Email obbligatoria",
-
-  "DETTAGLIO_NOTIZIA_TITOLO": "Dettaglio Notizia",
-
-  "INSEGNAMENTI_TITOLO": "Insegnamenti",
-  "DETTAGLIO_INSEGNAMENTO_TITOLO": "Dettaglio",
-  "APPELLI_TITOLO": "Appelli",
-  "APPELLO_TITOLO": "Appello",
-  "APPELLO_DESCRIZIONE": "Descrizione",
-  "APPELLO_DESCRIZIONE_REQUIRED": "Descrizione obbligatorio",
-  "APPELLO_DATA": "Data",
-  "APPELLO_DATA_REQUIRED": "Data obbligatoria",
-  "APPELLO_TIPOLOGIA_ESAME": "Tipologia",
-  "APPELLO_TIPOLOGIA_ESAME_REQUIRED": "Tipologia Esame obbligatorio",
-  "APPELLO_DELETE_TITLE": "Appello",
-  "APPELLO_DELETE_MESSAGE": "Vuoi cancellare l'appello?",
 
 
 
@@ -69,16 +41,37 @@
   "INSERISCI_TAB": "Inserisci",
   "CATEGORIE_TAB": "Categorie",
   "MOVIMENTI_TAB":"Movimenti",
-    "POSITIVO":"Entrate",
-    "NEGATIVO":"Uscite",
-    "ADD_FLOW":"Aggiungi Movimento",
-    "UPDATE_FLOW":"Aggiorna Movimento",
-    "CATEGORY_REQUIRED":"Categoria Richiesta",
-    "CATEGORIA":"Categoria",
-    "IMPORTO":"Importo",
-    "VALUTA":"Valuta",
-    "CURRENCY_VALUE":"€",
-    "IMPORTO_REQUIRED":"Importo Richiesto"
+    "POSITIVO": "Entrate",
+    "NEGATIVO": "Uscite",
+    "ADD_FLOW": "Aggiungi Movimento",
+    "UPDATE_FLOW": "Aggiorna Movimento",
+    "CATEGORY_REQUIRED": "Categoria Richiesta",
+    "CATEGORIA": "Categoria",
 
 
+  "IMPOSTAZIONI_TAB": "Impostazioni",
+  "PROFILO": "Profilo",
+  "LINGUA": "Lingua",
+  "VALUTA": "Valuta",
+  "LOGOUT": "Esci",
+  "LANGUAGE_CURR": "Lingua e Valuta",
+      
+  "IMPORTO": "Importo",
+  "IMPORTO_REQUIRED": "Importo Richiesto",
+  "TIPOLOGIA": "Tipologia",
+  "PROFILO_PAGE": "Profilo Personale",
+  "REGISTRATI": "Registrati",
+  "NOME": "Nome",
+  "COGNOME": "Cognome",
+  "FAMIGLIA": "Famiglia",
+  "CURRENCY_VALUE": "€",
+  "FAMIGLIA_REQUIRED": "Nome Famiglia Richiesto",
+  "NAME_REQUIRED": "Nome Richiesto",
+  "COGNOME_REQUIRED": "Cognome Richiesto",
+  "FAMIGLIA_WARN2": "ATTENZIONE: se inserita una famiglia inesistente, ne verrà creata una con il nome specificato",
+  "ADD_CAT": "Aggiungi Categoria",
+  "UPDATE_CAT": "Aggiorna Categoria",
+  "SEGNO": "Entrata/Uscita",
+  "SEGNO_REQUIRED": "Segno Richiesto",
+  "BUDGET_REQUIRED": "Budget Richiesto"
 }

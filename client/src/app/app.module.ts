@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { IonicModule, IonicRouteStrategy, NavParams } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
@@ -13,6 +13,11 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './interceptors';
+import { LinguaService } from './services/lingua.service';
+import { UtenteService } from './services/utente.service';
+import { CategoriaService } from './services/categoria.service';
+import { CatUteService } from './services/catUte.service';
+import { MovimentoService } from './services/movimento.service';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -37,10 +42,16 @@ export function createTranslateLoader(http: HttpClient) {
     driverOrder: ['indexeddb', 'sqlite', 'websql']
 })],
   providers: [
+    NavParams,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
-    httpInterceptorProviders
+    httpInterceptorProviders,
+    LinguaService,
+    UtenteService,
+    CategoriaService,
+    MovimentoService,
+    CatUteService
   ], 
   bootstrap: [AppComponent],
 })

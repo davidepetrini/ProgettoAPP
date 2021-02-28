@@ -118,10 +118,10 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 	}
 
 
-	@Override
+	/*@Override
 	public void insertMovimento(Movimento movimento) throws BusinessException {
 		movimentoRepository.save(movimento);
-	}
+	}*/
 
 	@Override
 	public void updateMovimento(Movimento movimento) throws BusinessException {
@@ -138,7 +138,10 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 		return movimentoRepository.findAll();
 	}
 
-
+	@Override
+	public void createMovimento(Movimento movimento) throws BusinessException {
+		movimentoRepository.save(movimento);
+	}
 
 	@Override
 	public void deleteMovimenti(Long cat) throws BusinessException {

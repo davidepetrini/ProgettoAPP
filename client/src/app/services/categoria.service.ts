@@ -12,9 +12,15 @@ export class CategoriaService{
     constructor(private http: HttpClient) {
     }
     
-    list(): Observable<Array<Categoria>> {        
-        let categorieUrl = `${URL.CATEGORIE}`;
-        return this.http.get<Array<Categoria>>(categorieUrl);
+    
+
+    list(): Observable<Categoria[]> {
+        return this.http.get<Categoria[]>(URL.CATEGORIE);
+    }
+
+    findByNome(nome: String): Observable<Categoria>{
+        let apiURL= `${URL.CATEGORIE}/nome/${nome}`;
+        return this.http.get<Categoria>(apiURL);
     }
 
     findById(categoriaId: number): Observable<Categoria> {
@@ -35,7 +41,7 @@ export class CategoriaService{
         return this.http.delete<Categoria>(deleteUrl);
     }
 
-    updateCategoria(movimento: Categoria) {
-        return this.http.put<Categoria>(URL.CATEGORIE, movimento);
+    updateCategoria(categoria: Categoria) {
+        return this.http.put<Categoria>(URL.CATEGORIE, categoria);
     }
 }

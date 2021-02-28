@@ -14,6 +14,8 @@ public class Movimento {
     @Column(name = "ID_MOVIMENTO", nullable = false)
     private Long id;
 
+    @Column(name = "NOME", length = 255)//nullable = false
+    private String nome;
 
     @Column(name = "DATA", nullable = false)
     private Date data;
@@ -37,6 +39,10 @@ public class Movimento {
     public void setId(Long id) {
         this.id=id;
     }
+
+    public String getNome() { return nome; }
+
+    public void setNome(String nome) { this.nome = nome; }
 
     public Date getData() {
         return data;

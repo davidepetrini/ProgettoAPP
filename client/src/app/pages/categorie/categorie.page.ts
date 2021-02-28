@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/internal/operators/tap';
 import { Categoria } from 'src/app/model/categoria.model';
 import { DettaglioCategoriaPage } from '../dettaglio-categoria/dettaglio-categoria.page';
+import {OverlayEventDetail} from '@ionic/core';
 
 import { CategoriaService } from 'src/app/services/categoria.service';
 
@@ -82,7 +83,7 @@ export class CategoriePage implements OnInit {
         console.log('cancel button pressed');
       }
     });*/
-    return await modal.present();
+     await modal.present();
   }
 
 }

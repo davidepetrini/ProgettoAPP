@@ -9,6 +9,7 @@ import { Movimento } from 'src/app/model/movimento.model';
 import { MovimentoPage} from '../movimento/movimento.page';
 import { MovimentoService } from 'src/app/services/movimento.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Categoria } from 'src/app/model/categoria.model';
 
 @Component({
   selector: 'app-movimenti',
@@ -18,7 +19,11 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class MovimentiPage implements OnInit {
   private movimenti$: Observable<Movimento[]>;
   //movimenti: Array<Movimento>;
-  movimento = new Movimento();
+  //movimento = new Movimento();
+  movimento :Array<Movimento>;
+  private idCategoria: number;
+
+
   inserimento:boolean;
   private idMovimento: number;
 
@@ -28,18 +33,23 @@ export class MovimentiPage implements OnInit {
   constructor(private route: ActivatedRoute,
     private movimentoService: MovimentoService,
               private modalController: ModalController,
-              
-              //private app: App
     ) {
   }
 
+
+
+  ngOnInit() {
+    this.movimenti$ = this.movimentoService.list();
+  }
+  /* valido, provo l'altro tipo, funziona anche questo da capire le differenze
+  
   ngOnInit() {
     //this.initTranslate();
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.idMovimento = parseInt(params.get('id'), 0);
       this.list();
     });
-  }
+  }*/
 
   doRefresh(event) {
     this.movimenti$ = this.movimentoService.list()
@@ -47,13 +57,29 @@ export class MovimentiPage implements OnInit {
           event.target.complete();
         }));
   }
+  async createMovimento() {
+    const movimento = new Movimento();
+    movimento.categoria = new Categoria();
+    movimento.categoria.id = this.idCategoria;
+    const modal = await this.modalController.create({
+      component: MovimentoPage,
+      componentProps: {appParam: movimento, "inserimento" : false}
+    });
+    modal.onDidDismiss().then((detail: OverlayEventDetail) => {
+      if (detail !== null && detail.data !== undefined) {
+        this.movimentoService.createMovimento(detail.data).subscribe(() => {
+          this.list();
+          this.inserimento = false; 
 
-  /*listMovimenti(){
-    console.log("Lista Movimenti");
-    this.movimentoService.list().subscribe((app: Array<Movimento>) =>{
-      this.movimenti = app;
-    })
-  }*/
+        });
+      } else {
+        console.log('cancel button pressed');
+      }
+    });
+
+    await modal.present();
+  }
+
 
   /*
   UpdateMovimento(n: Movimento) {

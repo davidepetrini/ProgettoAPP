@@ -3,9 +3,7 @@
 
   "LOGIN_BUTTON": "Enter",
   "DONE_BUTTON": "Done",
-  "SAVE_BUTTON": "Save",
-  "CANCEL_BUTTON": "Cancel",
-  "DELETE_BUTTON": "Delete",
+
   "ADD_CATEGORIA": "Add category",
 
   "LOGIN_TITLE": "Login",
@@ -14,8 +12,6 @@
 
   "PAGINA_COSTRUZIONE": "Page under construction!!!!!",
 
-  "NOME": "Name",
-  "COGNOME": "Surname",
   "USERNAME": "Username",
   "PASSWORD": "Password",
   "USERNAME_REQUIRED": "Username required",
@@ -32,47 +28,50 @@
 
   "PROFILO_MENU": "Profile",
   "LOGOUT_MENU": "Logout",
-  "NOTIZIE_TAB": "News",
-  "ORARIO_TAB": "Calendar",
-  "APPELLI_TAB": "Exam sessions",
-  "ESAMI_TAB": "Exams",
-  "LEZIONI_TAB": "Lectures",
+
 
   "PROFILO_TITOLO": "Profile",
-  "MATRICOLA": "Matricola",
-  "EMAIL": "Email",
-  "LANGUAGE": "Language",
-  "EMAIL_REQUIRED": "Email mandatory",
 
-  "DETTAGLIO_NOTIZIA_TITOLO": "News Detail",
-
-  "INSEGNAMENTI_TITOLO": "Courses",
-  "DETTAGLIO_INSEGNAMENTO_TITOLO": "Detail",
-  "APPELLI_TITOLO": "Exam sessions",
-  "APPELLO_TITOLO": "Exam session",
-  "APPELLO_DESCRIZIONE": "Description",
-  "APPELLO_DESCRIZIONE_REQUIRED": "Description mandatory",
-  "APPELLO_DATA": "Date",
-  "APPELLO_DATA_REQUIRED": "Date mandatory",
-  "APPELLO_TIPOLOGIA_ESAME": "Type",
-  "APPELLO_TIPOLOGIA_ESAME_REQUIRED": "Exam Type mandatory",
-  "APPELLO_DELETE_TITLE": "Exam session",
-  "APPELLO_DELETE_MESSAGE": "Do you want to delete the exam session?",
 
 
 
   "HOME_TAB": "Home",
   "INSERISCI_TAB": "Inserisci",
-  "CATEGORIE_TAB": "Categorie",
-  "MOVIMENTI_TAB":"Flow",
-  "POSITIVO": "Revenues",
-  "NEGATIVO":"Expense",
-  "ADD_FLOW":"Aggiungi Movimento",
-  "UPDATE_FLOW":"Aggiorna Movimento",
-  "CATEGORY_REQUIRED":"Categoria Richiesta",
-  "CATEGORIA":"Category",
-  "IMPORTO":"Value",
-  "IMPORTO_REQUIRED":"Value Required",
-  "CURRENCY_VALUE":"€"
+  "BUDGET_REQUIRED":"Budget mandatory",
+
+    "MOVIMENTI_TAB":"Flow",
+    "POSITIVO": "Revenues",
+    "NEGATIVO":"Expense",
+    "CATEGORIE_TAB":"Categories",
+    "IMPOSTAZIONI_TAB":"Settings",
+    "PROFILO":"Profile",
+    "LINGUA":"Language",
+    "VALUTA":"Currency",
+    "LOGOUT":"Logout",
+    "SAVE_BUTTON":"Save",
+    "CANCEL_BUTTON":"Cancel",
+    "LANGUAGE_CURR":"Language and Currency",
+    "CATEGORIA":"Category",
+    "IMPORTO":"Value",
+    "IMPORTO_REQUIRED":"Value Required",
+    "TIPOLOGIA":"Type",
+    "ADD_FLOW":"Add New Flow",
+    "UPDATE_FLOW":"Update Flow",
+    "CATEGORY_REQUIRED":"Category Required",
+    "PROFILO_PAGE":"User Profile",
+    "REGISTRATI":"Sign Up",
+    "NOME":"First Name",
+    "COGNOME":"Last Name",
+    "FAMIGLIA":"Family",
+    "FAMIGLIA_REQUIRED":"Family Name Required",
+    "NAME_REQUIRED":"First Name Required",
+    "COGNOME_REQUIRED":"Last Name Required",
+    "CURRENCY_VALUE":"€",
+    "DELETE_BUTTON":"Delete",
+    "FAMIGLIA_WARN2":"WARNING :if you insert a family that doesn't exist, a new one will be created with the name you specified",
+    "ADD_CAT":"Add Category",
+    "UPDATE_CAT":"Update Category",
+    "SEGNO":"Revenues/expense",
+    "SEGNO_REQUIRED":"Sign Required"
 
 }

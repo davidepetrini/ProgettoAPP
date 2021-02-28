@@ -37,15 +37,15 @@ public class RESTMovimentiController {
 		return service.findMovimentoById(idMovimento);
 	}
 
-	/*@PostMapping
+	@PostMapping
 	public void createMovimento(@RequestBody Movimento movimento) {
 		service.createMovimento(movimento);
-	}*/
+	}
 
-	@PostMapping
+	/*@PostMapping
 	public void insertMovimento(@RequestBody Movimento movimento) {
 		service.insertMovimento(movimento);
-	}
+	}*/
 
 	@PutMapping
 	public void updateMovimento(@RequestBody Movimento movimento) {

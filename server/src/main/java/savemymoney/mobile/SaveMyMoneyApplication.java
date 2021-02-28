@@ -79,6 +79,7 @@ public class SaveMyMoneyApplication {
             PetAbiti= CategoriaUtenteRepository.save(PetAbiti);
 
             Movimento stipe = new Movimento();
+            stipe.setNome("Stipendiox");
             stipe.setCategoria(stip);
             stipe.setUtente(marco);
             stipe.setData(new Date(System.currentTimeMillis() + (20 * 86400000)));
@@ -86,6 +87,7 @@ public class SaveMyMoneyApplication {
             stipe=movimentoRepository.save(stipe);
 
             Movimento food = new Movimento();
+            food.setNome("food");
             food.setCategoria(cibo);
             food.setUtente(davide);
             food.setData(new Date(System.currentTimeMillis() + (20 * 86400000)));
@@ -93,6 +95,7 @@ public class SaveMyMoneyApplication {
             food = movimentoRepository.save(food);
 
             Movimento giacca = new Movimento();
+            giacca.setNome("Giacca");
             giacca.setCategoria(abiti);
             giacca.setUtente(davide);
             giacca.setData(new Date(System.currentTimeMillis()+(20*86400000)));
@@ -100,6 +103,7 @@ public class SaveMyMoneyApplication {
             giacca = movimentoRepository.save(giacca);
 
             Movimento cravatta = new Movimento();
+            cravatta.setNome("cravatta");
             cravatta.setCategoria(abiti);
             cravatta.setUtente(marco);
             cravatta.setData(new Date(System.currentTimeMillis()+(20*86400000)));
