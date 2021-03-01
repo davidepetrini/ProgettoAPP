@@ -10,22 +10,39 @@
 </ion-header>
 
 <ion-content>
+  
   <ion-tabs><!--*ngIf="(utente$ | async) as utente"-->
+    
+
+
     <ion-tab-bar slot="bottom"> <!--top-->
-      <ion-tab-button tab="movimenti">
+      <ion-tab-button tab="movimenti" class="left">
         <ion-icon name="home"></ion-icon>
         <ion-label>{{'HOME_TAB' | translate}}</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button tab="movimento" ><!--[hidden]="!(utente.ruolo === 'docente')"-->
+      <!--<ion-tab-button tab="movimento">
         <ion-icon name="add"></ion-icon>
         <ion-label>{{'INSERISCI_TAB' | translate}}</ion-label>
       </ion-tab-button>
-      <ion-tab-button tab="categorie"><!--[hidden]="!(utente.ruolo === 'docente')"-->
+
+    -->
+    <div class="dive">
+
+      <!--<ion-button class="center" icon-left size="medium" shape="round" color="warning"
+        tappable><ion-icon name="add"></ion-icon>
+      
+      </ion-button>-->
+    </div>
+
+
+      <ion-tab-button tab="categorie" class="right">
         <ion-icon name="list"></ion-icon>
         <ion-label>{{'CATEGORIE_TAB' | translate}}</ion-label>
       </ion-tab-button>
 
     </ion-tab-bar>
+    
   </ion-tabs>
+  
 </ion-content>

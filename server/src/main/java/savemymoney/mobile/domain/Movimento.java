@@ -28,7 +28,7 @@ public class Movimento {
     private Categoria categoria;
 
     @ManyToOne
-    @JoinColumn(name = "UTENTE_IDUTENTE", nullable = false)
+    @JoinColumn(name = "UTENTE_IDUTENTE")//, nullable = false
     private Utente utente;
 
 
