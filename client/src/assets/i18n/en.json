@@ -72,6 +72,7 @@
     "ADD_CAT":"Add Category",
     "UPDATE_CAT":"Update Category",
     "SEGNO":"Revenues/expense",
-    "SEGNO_REQUIRED":"Sign Required"
+    "SEGNO_REQUIRED":"Sign Required",
+    "MOVIMENTO_DATA": "Date"
 
 }

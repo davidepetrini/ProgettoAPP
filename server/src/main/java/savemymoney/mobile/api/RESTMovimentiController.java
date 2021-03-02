@@ -24,12 +24,15 @@ public class RESTMovimentiController {
 		return service.findMovimentiByCategoriaId(idCategoria);
 	}
 
-	@DeleteMapping("/delete/{idCategoria")
+	@DeleteMapping("/delete/{idCategoria}")
 	public void deleteMovimentiWhereCategoria(@PathVariable Long idCategoria) {
 		service.deleteMovimenti(idCategoria);
 	}
 
-
+	@GetMapping("/getTotal")
+	public int getTotal() {
+		return service.getTotal();
+	}
 
 
 	@GetMapping("/{idMovimento}")

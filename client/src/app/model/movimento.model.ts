@@ -7,6 +7,7 @@ export class Movimento {
     importo:number;
     data: Date;
     categoria: Categoria;
+    utente: Utente;
 
 }
 

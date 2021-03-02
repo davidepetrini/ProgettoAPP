@@ -46,6 +46,9 @@ export class MovimentoPage implements OnInit {
       ])],
       importo: [this.movimento.importo, Validators.compose([
         Validators.required
+      ])],
+      data: [this.movimento.data, Validators.compose([
+        Validators.required
       ])]
     });
 
@@ -59,7 +62,9 @@ export class MovimentoPage implements OnInit {
     this.movimento.nome = this.movimentoFormModel.value.nome;
     this.movimento.categoria = this.movimentoFormModel.value.categoria;
     this.movimento.importo = this.movimentoFormModel.value.importo;
+    this.movimento.data = this.movimentoFormModel.value.data;
     await this.modalController.dismiss(this.movimento);
+    
   }
 
   onDelete(){

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.Scanner;
 
+import jdk.internal.jimage.ImageReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.JpaSort;
@@ -136,6 +137,23 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 	@Override
 	public List<Movimento> findAllMovimenti() throws BusinessException {
 		return movimentoRepository.findAll();
+	}
+
+	List<Movimento> nmovimenti = movimentoRepository.findAllMovimenti();
+
+	int nmov = nmovimenti.size();
+
+	@Override
+	public int getTotal() throws BusinessException {
+		int portafoglio= 0;
+		Movimento movimento = null;
+		for(int i = 0; i < nmov; i++){
+
+			portafoglio+= movimento.getImporto();
+		};
+		return portafoglio;
+
+
 	}
 
 	@Override

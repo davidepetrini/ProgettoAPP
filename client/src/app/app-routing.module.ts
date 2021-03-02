@@ -13,11 +13,6 @@ const routes: Routes = [
     loadChildren: './pages/login/login.module#LoginPageModule'
   },
   {
-    path: 'dashboard',
-    loadChildren: './pages/dashboard/dashboard.module#DashboardPageModule',
-    canActivateChild: [AuthGuard]
-  },
-  {
     path: 'categorie',
     loadChildren: './pages/categorie/categorie.module#CategoriePageModule',
     canActivateChild: [AuthGuard]
@@ -48,30 +43,17 @@ const routes: Routes = [
     canActivateChild: [AuthGuard]
   },
   {
-    path: 'notizie',
-    loadChildren: './pages/notizie/notizie.module#NotiziePageModule',
-    canActivateChild: [AuthGuard]
-  },
-  {
-    path: 'dummy',
-    loadChildren: './pages/dummy/dummy.module#DummyPageModule', 
-  },
-  {
-    path: 'dummy-tab',
-    loadChildren: './pages/dummy-tab/dummy-tab.module#DummyTabPageModule',
-  },
-  {
     path: 'dettaglio-categoria',
     loadChildren: './pages/dettaglio-categoria/dettaglio-categoria.module#DettaglioCategoriaPageModule',
-  },
-  {
-    path: 'edit-categoria',
-    loadChildren: './pages/edit-categoria/edit-categoria.module#EditCategoriaPageModule',
   },
   {
     path: 'movimenti',
     loadChildren: './pages/movimenti/movimenti.module#MovimentiPageModule',
     canActivateChild: [AuthGuard]
+  },
+  {
+    path: 'registrazione',
+    loadChildren: './pages/registrazione/registrazione.module#RegistrazionePageModule'
   },
 ];
 

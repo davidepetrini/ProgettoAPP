@@ -64,6 +64,6 @@ public interface SaveMyMoneyService {
 
 	List<Movimento> findAllMovimenti() throws BusinessException;
 
-
+int getTotal()throws BusinessException;
 }
 

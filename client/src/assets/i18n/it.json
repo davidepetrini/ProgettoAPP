@@ -73,5 +73,7 @@
   "UPDATE_CAT": "Aggiorna Categoria",
   "SEGNO": "Entrata/Uscita",
   "SEGNO_REQUIRED": "Segno Richiesto",
-  "BUDGET_REQUIRED": "Budget Richiesto"
+  "BUDGET_REQUIRED": "Budget Richiesto",
+  "MOVIMENTO_DATA": "Data"
+
 }

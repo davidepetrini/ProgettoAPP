@@ -29,11 +29,6 @@ export class DettaglioCategoriaPage implements OnInit {
     public catUteService: CatUteService,
     private categoriaService: CategoriaService) { }
 
- /* ngOnInit() {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      this.categoria$ = this.categoriaService.findById(parseInt(params.get('id'), 0));
-    });
-  }*/
 
   ngOnInit() {
     this.categoria = this.navParams.data.appParam;
@@ -48,6 +43,7 @@ export class DettaglioCategoriaPage implements OnInit {
         Validators.required
       ])]
     });
+    
   }
 
   async onSubmit() {
@@ -56,7 +52,7 @@ export class DettaglioCategoriaPage implements OnInit {
     this.categoria.budget = this.categoriaFormModel.value.budget;
 
     //controllo se la categoria esiste sul DB
-    this.categoriaService.findByNome(this.categoria.nome).subscribe((data:Categoria)=>{
+    /*this.categoriaService.findByNome(this.categoria.nome).subscribe((data:Categoria)=>{
       if(!data){
         //se non esiste creo una nuova Categoria
         console.log("Categoria non esistente");
@@ -70,7 +66,7 @@ export class DettaglioCategoriaPage implements OnInit {
         console.log("Categoria esistente");
         this.categoria=data;
       }
-    });
+    });*/
     await this.modalController.dismiss(this.categoria);
     //this.catUteService.insert(this.categoria).subscribe(()=>{});
 

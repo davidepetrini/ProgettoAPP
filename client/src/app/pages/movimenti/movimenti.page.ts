@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, IonItemSliding, ModalController } from '@ionic/angular';
+import { AlertController, IonItemSliding, ModalController, NavController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core';
 
 
@@ -9,7 +9,8 @@ import { Movimento } from 'src/app/model/movimento.model';
 import { MovimentoPage} from '../movimento/movimento.page';
 import { MovimentoService } from 'src/app/services/movimento.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Categoria } from 'src/app/model/categoria.model';
+import { Categoria, SEGNO } from 'src/app/model/categoria.model';
+import { CategoriaService } from 'src/app/services/categoria.service';
 
 @Component({
   selector: 'app-movimenti',
@@ -18,14 +19,15 @@ import { Categoria } from 'src/app/model/categoria.model';
 })
 export class MovimentiPage implements OnInit {
   private movimenti$: Observable<Movimento[]>;
-  //movimenti: Array<Movimento>;
+  movimenti: Array<Movimento>;
   //movimento = new Movimento();
-  movimento :Array<Movimento>;
   private idCategoria: number;
-
-
   inserimento:boolean;
   private idMovimento: number;
+result: number;
+
+
+portafoglio : string = "portafoglio";
 
 
 
@@ -33,6 +35,7 @@ export class MovimentiPage implements OnInit {
   constructor(private route: ActivatedRoute,
     private movimentoService: MovimentoService,
               private modalController: ModalController,
+              public navCtrl: NavController
     ) {
   }
 
@@ -40,6 +43,7 @@ export class MovimentiPage implements OnInit {
 
   ngOnInit() {
     this.movimenti$ = this.movimentoService.list();
+    
   }
   /* valido, provo l'altro tipo, funziona anche questo da capire le differenze
   
@@ -53,8 +57,10 @@ export class MovimentiPage implements OnInit {
 
   doRefresh(event) {
     this.movimenti$ = this.movimentoService.list()
+    
         .pipe(tap(() => {
           event.target.complete();
+          
         }));
   }
   async createMovimento() {
@@ -63,7 +69,7 @@ export class MovimentiPage implements OnInit {
     movimento.categoria.id = this.idCategoria;
     const modal = await this.modalController.create({
       component: MovimentoPage,
-      componentProps: {appParam: movimento, "inserimento" : false}
+      componentProps: {appParam: movimento}
     });
     modal.onDidDismiss().then((detail: OverlayEventDetail) => {
       if (detail !== null && detail.data !== undefined) {
@@ -95,7 +101,7 @@ export class MovimentiPage implements OnInit {
     //sliding.close();
     const modal = await this.modalController.create({
       component: MovimentoPage,
-      componentProps: {appParam: movimento}
+      componentProps: {appParam: movimento, inserimento: "false"}
     });
     modal.onDidDismiss().then((detail: OverlayEventDetail) => {
       if (detail !== null && detail.data !== undefined) {
@@ -110,12 +116,16 @@ export class MovimentiPage implements OnInit {
   }
 
 
-
   list() {
     this.movimenti$ = this.movimentoService.list();//this.idMovimento
   }
 
   
+total(importo: number){
+  this.result = this.result + importo;
+  return this.result;
+  console.log(this.result);
+}
 }
 
 

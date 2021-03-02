@@ -49,22 +49,18 @@ export class CategoriePage implements OnInit {
       component: DettaglioCategoriaPage,
       componentProps: {appParam: categoria}
     });
-    /*modal.onDidDismiss().then((detail: OverlayEventDetail) => {
+    modal.onDidDismiss().then((detail: OverlayEventDetail) => {
       if (detail !== null && detail.data !== undefined) {
-        this.insegnamentoService.createAppello(detail.data).subscribe(() => {
-          this.listAppelli();
+        this.categoriaService.createCategoria(detail.data).subscribe(() => {
+          this.list();
         });
       } else {
         console.log('cancel button pressed');
       }
-    });*/
+    });
 
     await modal.present();
   }
-
-
-
-
 
 
 
@@ -74,16 +70,20 @@ export class CategoriePage implements OnInit {
       component: DettaglioCategoriaPage,
       componentProps: {appParam: categoria}
     });
-    /*modal.onDidDismiss().then((detail: OverlayEventDetail) => {
+    modal.onDidDismiss().then((detail: OverlayEventDetail) => {
       if (detail !== null && detail.data !== undefined) {
-        this.categoriaService.updateMovimento(detail.data).subscribe(() => {
-          this.listMovimento();
+        this.categoriaService.updateCategoria(detail.data).subscribe(() => {
+          this.list();
         });
       } else {
         console.log('cancel button pressed');
       }
-    });*/
+    });
      await modal.present();
+  }
+
+  list() {
+    this.categorie$ = this.categoriaService.list();//this.idCategoria
   }
 
 }
