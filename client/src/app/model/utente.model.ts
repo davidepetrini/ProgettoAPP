@@ -1,9 +1,9 @@
 export class Utente {
 
-    username: string;
+    
     nome: string;
     cognome: string;
-    email: string;
+    username: string;
     //famiglia: Famiglia;  
 
 

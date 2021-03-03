@@ -4,6 +4,7 @@ import { Movimento } from "../model/movimento.model";
 
 import { URL } from '../constants';
 import { Injectable } from "@angular/core";
+import { sum } from "lodash";
 
 @Injectable({
     providedIn: 'root'
@@ -18,8 +19,6 @@ export class MovimentoService{
     list(): Observable<Movimento[]> {
         return this.http.get<Movimento[]>(URL.MOVIMENTI);
     }
-
-
 
     findById(movimentoId: number): Observable<Movimento> {
         let apiURL = `${URL.MOVIMENTI}/${movimentoId}`;

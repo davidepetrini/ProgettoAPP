@@ -3,16 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-import { ProfiloPage } from './profilo.page';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { RegistrazionePage } from './registrazione.page';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { createTranslateLoader } from 'src/app/app.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   {
       path: '',
-      component: ProfiloPage
+      component: RegistrazionePage
   }
 ];
 
@@ -25,6 +23,6 @@ const routes: Routes = [
     TranslateModule.forChild(),
     RouterModule.forChild(routes)
   ],
-  declarations: [ProfiloPage]
+  declarations: [RegistrazionePage]
 })
-export class ProfiloPageModule {}
+export class RegistrazionePageModule {}

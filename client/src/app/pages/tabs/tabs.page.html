@@ -21,26 +21,20 @@
         <ion-label>{{'HOME_TAB' | translate}}</ion-label>
       </ion-tab-button>
 
-      <!--<ion-tab-button tab="movimento">
-        <ion-icon name="add"></ion-icon>
-        <ion-label>{{'INSERISCI_TAB' | translate}}</ion-label>
-      </ion-tab-button>
-
-    -->
-    <div class="dive">
-
-      <!--<ion-button class="center" icon-left size="medium" shape="round" color="warning"
-        tappable><ion-icon name="add"></ion-icon>
-      
-      </ion-button>-->
-    </div>
 
 
       <ion-tab-button tab="categorie" class="right">
         <ion-icon name="list"></ion-icon>
         <ion-label>{{'CATEGORIE_TAB' | translate}}</ion-label>
       </ion-tab-button>
-
+      
+      <!--<ion-button fill="solid" size="small" color="dark" (click)="profilo()">
+        <ion-icon name="list" color="light"></ion-icon>{{'PROFILO_MENU' | translate}}</ion-button>-->
+      
+        <ion-tab-button tab="profilo">
+        <ion-icon name="cog-outline"></ion-icon>
+        <ion-label>{{'IMPOSTAZIONI' | translate}}</ion-label>
+      </ion-tab-button>
     </ion-tab-bar>
     
   </ion-tabs>

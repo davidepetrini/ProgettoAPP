@@ -22,15 +22,7 @@ const routes: Routes = [
               }
           ]
       },
-      {
-       path: 'movimento',
-        children: [
-            {
-                path: '',
-                loadChildren: '../movimento/movimento.module#MovimentoPageModule' 
-            }
-        ]
-    },
+      
     {
       path: 'categorie',
       children: [
@@ -40,6 +32,15 @@ const routes: Routes = [
           }
       ]
     },
+    {
+      path: 'profilo',
+       children: [
+           {
+               path: '',
+               loadChildren: '../profilo/profilo.module#ProfiloPageModule' 
+           }
+       ]
+   },
       {
         path: '',
         redirectTo: '/tabs/movimenti',

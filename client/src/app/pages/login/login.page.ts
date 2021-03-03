@@ -26,10 +26,10 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.loginFormModel = this.formBuilder.group({
-      username: ['Davide', Validators.compose([
+      username: ['utente.cognome', Validators.compose([
         Validators.required
       ])],
-      password: ['davide', Validators.compose([
+      password: ['utente.nome', Validators.compose([
         Validators.required
       ])]
     });
@@ -69,5 +69,14 @@ export class LoginPage implements OnInit {
       this.loginTitle = data;
     });
   }
+/*
+  registrati(){
+    /*let famiglia = new Famiglia();
+    famiglia.id=0;
+    famiglia.nome="";
+    this.app.getRootNav().push(REGISTRAZIONE_PAGE,{"famiglia":famiglia});
+    this.navController.navigateRoot('registrazione');
+
+  }*/
 
 }

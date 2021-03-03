@@ -18,18 +18,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent implements OnInit {
     private utente$: BehaviorSubject<Utente>;
 
-    private menuStudenti  = [
-        {title: 'PIANO_STUDI_MENU', url: 'dummy', icon: 'school'},
-        {title: 'TASSE_MENU', url: 'dummy', icon: 'cash'},
-        {title: 'LIBRETTO_MENU', url: 'dummy', icon: 'book'}
-    ];
 
-    private menuDocenti = [
-        {title: 'MIE_NOTIZIE_MENU', url: 'dummy', icon: 'albums'},
-        {title: 'APPROVAZIONE_PIANI_MENU', url: 'dummy', icon: 'barcode'},
-        {title: 'DIARIO_MENU', url: 'dummy', icon: 'book'},
-        {title: 'QUESTIONARIO_MENU', url: 'dummy', icon: 'help-circle'}
-    ];
 
     constructor(private platform: Platform,
                 private splashScreen: SplashScreen,
