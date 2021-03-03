@@ -61,8 +61,8 @@ public class SaveMyMoneyServiceImpl implements SaveMyMoneyService {
 	}
 
 	@Override
-	public void deleteCategoriaById(Long id) throws BusinessException {
-		categoriaRepository.deleteById(id);
+	public void deleteCategoria(Long idCategoria) throws BusinessException {
+		categoriaRepository.deleteById(idCategoria);
 	}
 
 	@Override

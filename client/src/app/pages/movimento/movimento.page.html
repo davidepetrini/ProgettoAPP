@@ -1,5 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary" text-center>
+    
     <ion-title>
       <h3 [hidden]="!inserimento">{{'UPDATE_FLOW'| translate}}</h3>
       <h3 [hidden]="inserimento">{{'ADD_FLOW'| translate}}</h3>
@@ -9,7 +10,7 @@
 
 
 
-<ion-content padding>
+<ion-content padding color="primary">
   <form [formGroup]="movimentoFormModel">
     <!--<ion-list no-lines>-->
 
@@ -65,23 +66,23 @@
 
 
         <!-- Submit -->
+        
+
         <div margin-top="30px" align="center">
-          <ion-button [hidden]="!inserimento" icon-left size="medium" shape="round" color="primary" (click)="onDelete()"
+          <ion-button icon-left size="medium" shape="round" color="secondary" (click)="onSubmit()"
+            [disabled]="!movimentoFormModel.valid" tappable>
+            {{ 'SAVE_BUTTON' | translate }}
+          </ion-button>
+          <ion-button [hidden]="inserimento" icon-left size="medium" shape="round" color="secondary" (click)="cancel()"
+            tappable>
+            {{ 'CANCEL_BUTTON' | translate }}
+          </ion-button>
+          <ion-button [hidden]="!inserimento" icon-left size="medium" shape="round" color="secondary" (click)="onDelete(movimento)"
             tappable>
             {{ 'DELETE_BUTTON' | translate }}
           </ion-button>
         </div>
-
-        <div margin-top="30px" align="center">
-          <ion-button icon-left size="medium" shape="round" color="primary" (click)="onSubmit()"
-            [disabled]="!movimentoFormModel.valid" tappable>
-            {{ 'SAVE_BUTTON' | translate }}
-          </ion-button>
-          <ion-button [hidden]="inserimento" icon-left size="medium" shape="round" color="primary" (click)="cancel()"
-            tappable>
-            {{ 'CANCEL_BUTTON' | translate }}
-          </ion-button>
-        </div>
+        
   </form>
 </ion-content>
 

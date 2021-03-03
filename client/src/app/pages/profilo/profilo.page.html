@@ -3,14 +3,14 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ 'PROFILO' | translate }} 
-      <h3 *ngIf="utente"><strong> {{utente.cognome + ' ' + utente.nome}}</strong></h3>
+    <ion-title> 
+      <p *ngIf="utente"><strong> {{utente.cognome + ' ' + utente.nome}}</strong></p>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding color="primary">
   <form [formGroup]="profiloFormModel">
 
 
@@ -32,15 +32,24 @@
 
 
       <div margin-top="30px" align="center">
-      <ion-button icon-left size="medium" shape="round" color="primary" (click)="onSubmit()" [disabled]="!profiloFormModel.valid" tappable>
+      <ion-button icon-left size="medium" shape="round" color="secondary" (click)="onSubmit()" [disabled]="!profiloFormModel.valid" tappable>
         {{ 'SAVE_BUTTON' | translate }}
       </ion-button>
-      <ion-button icon-left size="medium" shape="round" color="primary" (click)="cancel()" tappable>
+      <ion-button icon-left size="medium" shape="round" color="secondary" (click)="cancel()" tappable>
         {{ 'CANCEL_BUTTON' | translate }}
       </ion-button>
     </div>
   </form>
 
+
+  <div class="logo centrato">
+    <img src="assets/image/LogoSenzaBordo.png" alt="SaveMyMoney logo">
+  <h3 > Version: 1.0.0 Save My money</h3>
+  <p> by SMM Team ©</p>
+</div>
+<div class="centrato">
+  
+</div>
 </ion-content>
 
 

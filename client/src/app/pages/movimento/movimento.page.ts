@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ModalController, NavController, NavParams } from '@ionic/angular';
+import { AlertController, IonItemSliding, IonRefresher, ModalController, NavController, NavParams } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Categoria } from 'src/app/model/categoria.model';
 import { Movimento } from 'src/app/model/movimento.model';
@@ -26,12 +26,21 @@ export class MovimentoPage implements OnInit {
   inserimento: boolean = false;
 
 
+
+  private deleteTitle: string;
+  private messageTitle: string;
+  private deleteButton: string;
+  private cancelButton: string;
+
+
   constructor(private navParams: NavParams,
     private modalController: ModalController,
     private formBuilder: FormBuilder,
     public navCtrl: NavController,
     private categoriaService: CategoriaService,
-    public movimentoService: MovimentoService
+    public movimentoService: MovimentoService,
+
+    private alertController: AlertController,
   ) { }
 
 
@@ -67,11 +76,41 @@ export class MovimentoPage implements OnInit {
     
   }
 
-  onDelete(){
+  /*onDelete(movimento: Movimento){
     this.movimentoService.deleteMovimento(this.movimento).subscribe(()=>{
       this.navCtrl.pop();
     })
+  }*/
+
+  async onDelete(movimento: Movimento, sliding: IonItemSliding) {
+    //sliding.close();
+    const alert = await this.alertController.create({
+      header: 'Elimina movimento',
+      buttons: [
+        {
+          text: 'Si',
+          handler: () => {
+            this.movimentoService.deleteMovimento(movimento).subscribe(()=>{
+            console.log('movimento eliminato ');
+            this.cancel();
+            
+          });
+          }
+        },
+        {
+          text: 'No',
+          handler: () => {
+            console.log('No Clicked ');
+
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
+
+
 
   async cancel() {
     await this.modalController.dismiss();

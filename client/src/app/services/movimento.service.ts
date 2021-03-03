@@ -5,6 +5,7 @@ import { Movimento } from "../model/movimento.model";
 import { URL } from '../constants';
 import { Injectable } from "@angular/core";
 import { sum } from "lodash";
+import { Categoria } from "../model/categoria.model";
 
 @Injectable({
     providedIn: 'root'
@@ -33,6 +34,12 @@ export class MovimentoService{
         let deleteUrl = `${URL.MOVIMENTI}/${movimento.id}`;
         return this.http.delete<Movimento>(deleteUrl);
     }
+
+    deleteMovimenti(categoria: Categoria) {
+        const deleteUrl = `${URL.MOVIMENTI}/${categoria.id}`;
+        return this.http.delete<Movimento>(deleteUrl);
+    }
+
 
     updateMovimento(movimento: Movimento) {
         return this.http.put<Movimento>(URL.MOVIMENTI, movimento);

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { ModalController, NavParams } from '@ionic/angular';
+import { ModalController, NavController, NavParams } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Categoria, SEGNO } from 'src/app/model/categoria.model';
 import { CategoriaService } from 'src/app/services/categoria.service';
@@ -26,6 +26,7 @@ export class DettaglioCategoriaPage implements OnInit {
     private navParams: NavParams,
     private route: ActivatedRoute,
     private modalController: ModalController,
+    public navCtrl: NavController,
     public catUteService: CatUteService,
     private categoriaService: CategoriaService) { }
 
@@ -68,9 +69,13 @@ export class DettaglioCategoriaPage implements OnInit {
       }
     });*/
     await this.modalController.dismiss(this.categoria);
-    //this.catUteService.insert(this.categoria).subscribe(()=>{});
-
   }
+
+  /*onDelete(){
+    this.categoriaService.deleteCategoria(this.categoria).subscribe(()=>{
+      this.navCtrl.pop();
+    })
+  }*/
 
   async cancel() {
     await this.modalController.dismiss();

@@ -42,7 +42,7 @@ public class RESTCategorieController {
 
 	@DeleteMapping("/{idCategoria}")
 	public void deleteCategoria( @PathVariable long idCategoria) {
-		service.deleteCategoriaById(idCategoria);
+		service.deleteCategoria(idCategoria);
 	}
 
 }

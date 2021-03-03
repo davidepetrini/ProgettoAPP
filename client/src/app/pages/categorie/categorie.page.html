@@ -3,28 +3,29 @@
 </ion-toolbar>
 
 
-<ion-content padding>
+<ion-content padding color="primary">
   <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
+    <ion-refresher-content>
+    </ion-refresher-content>
   </ion-refresher>
 
   <ion-list>
-    <ion-list-header>{{'POSITIVO' | translate}}</ion-list-header>
+    <ion-list-header color="secondary" class="green">{{'POSITIVO' | translate}}</ion-list-header>
     <ion-item-sliding *ngFor="let categoria of categorie$ | async" #sliding>
       <ion-item *ngIf="categoria.segno == 'ENTRATA'">
-        <ion-item-option color="secondary" (click)="updateCategoria(categoria, sliding)">{{categoria.nome}}
+        <ion-item-option color="secondary" (click)="updateCategoria(categoria, sliding, inserimento)">{{categoria.nome}}
           <ion-icon slot="icon-only" name="create"></ion-icon>
         </ion-item-option>
-        <!--<button ion-button (click)="delete(f)" outline block>
+        <button ion-button (click)="delete(categoria, sliding)" outline block>
           <ion-icon name="close"></ion-icon>
-        </button>-->
+        </button>
       </ion-item>
     </ion-item-sliding>
 
-    <ion-list-header>{{'NEGATIVO' | translate}}</ion-list-header>
+    <ion-list-header color="secondary" class="red">{{'NEGATIVO' | translate}}</ion-list-header>
     <ion-item-sliding *ngFor="let categoria of categorie$ | async" #sliding>
       <ion-item *ngIf="categoria.segno == 'USCITA'">
-        <ion-item-option color="secondary" (click)="updateCategoria(categoria, sliding)">{{categoria.nome}}
+        <ion-item-option color="secondary" (click)="updateCategoria(categoria, sliding, inserimento)">{{categoria.nome}}
           <ion-icon slot="icon-only" name="create"></ion-icon>
         </ion-item-option>
       </ion-item>
@@ -32,7 +33,7 @@
 
   </ion-list>
   <div>
-    <ion-button (click)="createCategoria()" class="center" icon-left size="medium" shape="round" color="primary"
+    <ion-button (click)="createCategoria()" class="center" icon-left size="medium" shape="round" color="secondary"
       tappable>
       {{ 'ADD_CATEGORIA' | translate }}
     </ion-button>

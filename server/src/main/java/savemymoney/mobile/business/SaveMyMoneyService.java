@@ -31,7 +31,7 @@ public interface SaveMyMoneyService {
 
 	void updateCategoria(Categoria categoria) throws BusinessException;
 
-	void deleteCategoriaById(Long id) throws BusinessException;
+	void deleteCategoria(Long idCategoria) throws BusinessException;
 
 
 

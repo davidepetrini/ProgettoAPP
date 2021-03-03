@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonItemSliding, ModalController } from '@ionic/angular';
+import { AlertController, IonItemSliding, ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/internal/operators/tap';
 import { Categoria } from 'src/app/model/categoria.model';
@@ -7,6 +7,7 @@ import { DettaglioCategoriaPage } from '../dettaglio-categoria/dettaglio-categor
 import {OverlayEventDetail} from '@ionic/core';
 
 import { CategoriaService } from 'src/app/services/categoria.service';
+import { MovimentoService } from 'src/app/services/movimento.service';
 
 @Component({
   selector: 'app-categorie',
@@ -19,6 +20,9 @@ export class CategoriePage implements OnInit {
 
   constructor(
     private categoriaService: CategoriaService,
+    private movimentoService: MovimentoService,
+
+    private alertController: AlertController,
     private modalController: ModalController) {
   }
 
@@ -68,7 +72,7 @@ export class CategoriePage implements OnInit {
     sliding.close();
     const modal = await this.modalController.create({
       component: DettaglioCategoriaPage,
-      componentProps: {appParam: categoria}
+      componentProps: {appParam: categoria, inserimento: "false"}
     });
     modal.onDidDismiss().then((detail: OverlayEventDetail) => {
       if (detail !== null && detail.data !== undefined) {
@@ -86,4 +90,31 @@ export class CategoriePage implements OnInit {
     this.categorie$ = this.categoriaService.list();//this.idCategoria
   }
 
+
+  async delete( categoria: Categoria, sliding: IonItemSliding ){  
+    sliding.close();  
+    const alert = await this.alertController.create({
+      header: 'Elimina Categoria',
+      message: "TUTTI I MOVIMENTI CON TALE CATEGORIA SARANNO ELIMINATI. PROCEDERE?",
+      cssClass:'buttonCss',
+      buttons: [
+        {
+          text: 'Si',
+          handler: () => {
+                this.categoriaService.deleteCategoria(categoria).subscribe(()=>{
+                  console.log("Categoria Eliminata");
+                  this.list();
+                });
+          }
+        },
+        {
+          text: 'No',
+          handler: () => {
+            console.log("No Clicked");
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
 }

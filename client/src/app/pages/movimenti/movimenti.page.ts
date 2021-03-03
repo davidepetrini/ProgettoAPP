@@ -32,6 +32,7 @@ portafoglio : string = "portafoglio";
 
 
 
+
   constructor(private route: ActivatedRoute,
     private movimentoService: MovimentoService,
               private modalController: ModalController,

@@ -4,20 +4,20 @@
     <ion-segment [(ngModel)]="portafoglio">
       <ion-col col-6 class="no_padding_top_bottom" centrato>
         <ion-segment-button ion-button value="portafoglio">
-          PORTAFOGLIO
+          {{'WALLET' | translate}}
         </ion-segment-button>
       </ion-col>
 
       <ion-col col-3 class="no_padding_top_bottom" centrato>
         <ion-segment-button ion-button entrate value="entrate">
-          ENTRATE
+          {{'POSITIVO' | translate}}
         </ion-segment-button>
 
       </ion-col>
 
       <ion-col col-3 class="no_padding_top_bottom" centrato>
         <ion-segment-button ion-button uscite value="uscite">
-          USCITE
+          {{'NEGATIVO' | translate}}
         </ion-segment-button>
       </ion-col>
     </ion-segment>
@@ -106,6 +106,6 @@
     </ion-list>
   </div>
 </ion-content>
-<ion-button (click)="createMovimento()" class="btt" size="medium" shape="round" color="warning" tappable>
+<ion-button (click)="createMovimento()" class="btt" size="medium" shape="round" color="secondary" tappable>
   <ion-icon name="add"></ion-icon>
 </ion-button>

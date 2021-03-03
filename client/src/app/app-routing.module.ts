@@ -51,10 +51,6 @@ const routes: Routes = [
     loadChildren: './pages/movimenti/movimenti.module#MovimentiPageModule',
     canActivateChild: [AuthGuard]
   },
-  {
-    path: 'registrazione',
-    loadChildren: './pages/registrazione/registrazione.module#RegistrazionePageModule'
-  },
 ];
 
 @NgModule({
