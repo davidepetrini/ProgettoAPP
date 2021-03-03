@@ -29,10 +29,7 @@ public class RESTMovimentiController {
 		service.deleteMovimenti(idCategoria);
 	}
 
-	@GetMapping("/getTotal")
-	public int getTotal() {
-		return service.getTotal();
-	}
+
 
 
 	@GetMapping("/{idMovimento}")
@@ -67,22 +64,6 @@ public class RESTMovimentiController {
 	@GetMapping
 	public List<Movimento> list() { return service.findAllMovimenti(); }
 
-/*
-	@GetMapping
-	public List<Movimento> findAllEntrate(){
-		Utente utente = Utility.getUtente();
-		return service.findAllMovimentiByUtente(utente);
-	}*/
-
-
-
-/*
-
-
-
-
-
-*/
 
 }
 
