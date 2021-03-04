@@ -37,6 +37,9 @@
       <ion-text color="danger">{{ 'BUDGET_REQUIRED' | translate }}</ion-text>
     </p>
 
+
+     <!-- Submit -->
+     
     <div margin-top="30px" align="center">
       <ion-button icon-left size="medium" shape="round" color="primary" (click)="onSubmit()"
         [disabled]="!categoriaFormModel.valid" tappable>
@@ -46,5 +49,6 @@
         {{ 'CANCEL_BUTTON' | translate }}
       </ion-button>
     </div>
+    
   </form>
 </ion-content>

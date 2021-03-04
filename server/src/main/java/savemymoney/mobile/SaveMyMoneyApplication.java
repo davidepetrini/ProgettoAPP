@@ -62,10 +62,20 @@ public class SaveMyMoneyApplication {
             cibo.setBudget(1000);
             cibo= categoriaRepository.save(cibo);
 
+            Categoria regalo= new Categoria();
+            regalo.setNome("nonna regalo");
+            regalo.setSegno(TipoMovimento.ENTRATA);
+            regalo= categoriaRepository.save(regalo);
+
             Categoria stip= new Categoria();
             stip.setNome("stipendio");
             stip.setSegno(TipoMovimento.ENTRATA);
             stip= categoriaRepository.save(stip);
+
+            Categoria gif= new Categoria();
+            gif.setNome("gifCard");
+            gif.setSegno(TipoMovimento.ENTRATA);
+            gif= categoriaRepository.save(gif);
 
             Categoria abiti = new Categoria();
             abiti.setNome("Vestiti");
@@ -79,9 +89,9 @@ public class SaveMyMoneyApplication {
             PetAbiti= CategoriaUtenteRepository.save(PetAbiti);
 
             Movimento stipe = new Movimento();
-            stipe.setNome("Stipendiox");
+            stipe.setNome("Stipendio");
             stipe.setCategoria(stip);
-            stipe.setUtente(marco);
+            stipe.setUtente(davide);
             stipe.setData(new Date(System.currentTimeMillis() + (20 * 86400000)));
             stipe.setImporto(2000.50);
             stipe=movimentoRepository.save(stipe);

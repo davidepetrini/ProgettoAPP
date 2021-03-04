@@ -24,7 +24,7 @@ public class RESTMovimentiController {
 		return service.findMovimentiByCategoriaId(idCategoria);
 	}
 
-	@DeleteMapping("/delete/{idCategoria}")
+	@DeleteMapping("/{idCategoria}")
 	public void deleteMovimentiWhereCategoria(@PathVariable Long idCategoria) {
 		service.deleteMovimenti(idCategoria);
 	}

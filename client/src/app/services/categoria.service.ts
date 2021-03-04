@@ -37,7 +37,7 @@ export class CategoriaService{
     }
 
     deleteCategoria(categoria: Categoria) {
-        let deleteUrl = `${URL.CATEGORIE}/${categoria.id}`;
+        const deleteUrl = `${URL.CATEGORIE}/${categoria.id}`;
         return this.http.delete<Categoria>(deleteUrl);
     }
 
